@@ -396,7 +396,7 @@ a, button, summary { touch-action: manipulation; }
   .hero-title { font: 400 2.25rem/2.5rem var(--font-display); }
 }
 @media (min-width: 640px) {
-  .hero { padding-top: calc(var(--s-900) + var(--s-400)); }
+  .hero { padding-top: calc(var(--s-900) + var(--s-200)); }
   .hero-grid { gap: var(--s-500); }
   .hero-copy { gap: var(--s-300); }
   .hero-copy .btn { align-self: flex-start; }
@@ -406,7 +406,7 @@ a, button, summary { touch-action: manipulation; }
   .hero-badge { width: 96px; height: 96px; left: 0; }
 }
 @media (min-width: 960px) {
-  .hero { padding-top: calc(var(--s-900) + var(--s-700)); }
+  .hero { padding-top: var(--s-800); }
   .hero-grid { grid-template-columns: 1.1fr 0.9fr; align-items: start; gap: var(--s-700); }
   .hero-copy { padding-top: var(--s-400); padding-bottom: calc(var(--s-900) + var(--s-900) + var(--s-600)); }
   .hero-title { font: 400 3.75rem/1 var(--font-display); }
