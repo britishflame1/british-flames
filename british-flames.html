@@ -1,0 +1,315 @@
+<title>British Flames</title>
+<style>
+  /* Page à thème unique, sombre : on le déclare pour les contrôles natifs. */
+  :root { color-scheme: dark; }
+  /* Dans l'Artifact, les sections restent lisibles au repos : elles glissent en place sans partir de l'invisible. */
+  html.js .reveal { opacity: 1; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add("js");</script>
+<div lang="fr">
+  <!-- Icônes Phosphor, en sprite : remplace deux polices d'icônes -->
+  <svg class="sprite" aria-hidden="true" focusable="false"><symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-arrow-up" viewBox="0 0 256 256"><path d="M205.66,117.66a8,8,0,0,1-11.32,0L136,59.31V216a8,8,0,0,1-16,0V59.31L61.66,117.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,117.66Z"/></symbol><symbol id="i-calendar-check" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM169.66,133.66l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35a8,8,0,0,1,11.32,11.32ZM48,80V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80Z"/></symbol><symbol id="i-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="i-clock" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm56,112H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48a8,8,0,0,1,0,16Z"/></symbol><symbol id="i-fire" viewBox="0 0 256 256"><path d="M143.38,17.85a8,8,0,0,0-12.63,3.41l-22,60.41L84.59,58.26a8,8,0,0,0-11.93.89C51,87.53,40,116.08,40,144a88,88,0,0,0,176,0C216,84.55,165.21,36,143.38,17.85Zm40.51,135.49a57.6,57.6,0,0,1-46.56,46.55A7.65,7.65,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z"/></symbol><symbol id="i-fork-knife" viewBox="0 0 256 256"><path d="M216,40V224a8,8,0,0,1-16,0V176H152a8,8,0,0,1-8-8,268.75,268.75,0,0,1,7.22-56.88c9.78-40.49,28.32-67.63,53.63-78.47A8,8,0,0,1,216,40Zm-96.11-1.31a8,8,0,1,0-15.78,2.63L111.89,88H88V40a8,8,0,0,0-16,0V88H48.11l7.78-46.68a8,8,0,1,0-15.78-2.63l-8,48A8.17,8.17,0,0,0,32,88a48.07,48.07,0,0,0,40,47.32V224a8,8,0,0,0,16,0V135.32A48.07,48.07,0,0,0,128,88a8.17,8.17,0,0,0-.11-1.31Z"/></symbol><symbol id="i-info" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-4,48a12,12,0,1,1-12,12A12,12,0,0,1,124,72Zm12,112a16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40a8,8,0,0,1,0,16Z"/></symbol><symbol id="i-magnifying-glass" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol><symbol id="i-map-pin" viewBox="0 0 256 256"><path d="M128,16a88.1,88.1,0,0,0-88,88c0,75.3,80,132.17,83.41,134.55a8,8,0,0,0,9.18,0C136,236.17,216,179.3,216,104A88.1,88.1,0,0,0,128,16Zm0,56a32,32,0,1,1-32,32A32,32,0,0,1,128,72Z"/></symbol><symbol id="i-phone" viewBox="0 0 256 256"><path d="M231.88,175.08A56.26,56.26,0,0,1,176,224C96.6,224,32,159.4,32,80A56.26,56.26,0,0,1,80.92,24.12a16,16,0,0,1,16.62,9.52l21.12,47.15,0,.12A16,16,0,0,1,117.39,96c-.18.27-.37.52-.57.77L96,121.45c7.49,15.22,23.41,31,38.83,38.51l24.34-20.71a8.12,8.12,0,0,1,.75-.56,16,16,0,0,1,15.17-1.4l.13.06,47.11,21.11A16,16,0,0,1,231.88,175.08Z"/></symbol><symbol id="i-squares-four" viewBox="0 0 256 256"><path d="M120,56v48a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40h48A16,16,0,0,1,120,56Zm80-16H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm-96,96H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm96,0H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Z"/></symbol><symbol id="i-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol></svg>
+  <a class="skip-link button-sm" href="#contenu">Aller au contenu</a>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="nav-bar">
+      <a class="nav-logo" href="#accueil" aria-label="British Flames, retour en haut de page">
+        <img src="assets/logo.png" alt="British Flames" width="382" height="104">
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a class="title-4" href="#best">Best sellers</a>
+        <a class="title-4" href="#menu">La carte</a>
+        <a class="title-4" href="#vendredi">Couscous</a>
+        <a class="title-4" href="#infos">Bon à savoir</a>
+        <a class="title-4" href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary button-sm nav-cta" href="#menu">Voir le menu</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Ouvrir le menu de navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="nav-panel" id="navPanel" hidden>
+    <nav aria-label="Navigation mobile">
+      <a class="heading-4" href="#best">Best sellers</a>
+      <a class="heading-4" href="#menu">La carte</a>
+      <a class="heading-4" href="#vendredi">Couscous</a>
+      <a class="heading-4" href="#infos">Bon à savoir</a>
+      <a class="heading-4" href="#contact">Contact</a>
+      <a class="btn btn-primary button-lg" href="#menu">Voir le menu</a>
+    </nav>
+  </div>
+
+  <main id="contenu">
+    <!-- Hero -->
+    <section class="hero" id="accueil">
+      <div class="embers" id="embers" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="tag-dashed caption-3">Burgers, tacos, pizzas, fish &amp; chips</p>
+          <h1 class="hero-title">Le goût qui fait<br>la différence</h1>
+          <p class="hero-sub body-3">Burgers, tacos français, pizzas, shawarma, poulet rôti et un vrai fish &amp; chips. Toute la carte British Flames, avec les prix, au même endroit.</p>
+          <a class="btn btn-primary button-md" href="#menu">Voir le menu <svg class="icon i-arrow-down" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+          <ul class="hero-proof" aria-label="La carte en chiffres">
+            <li><span class="heading-5" id="statItems">85</span><span class="caption-2">plats à la carte</span></li>
+            <li><span class="heading-5" id="statCats">16</span><span class="caption-2">familles de plats</span></li>
+            <li><span class="heading-5"><svg class="icon i-calendar-check" aria-hidden="true"><use href="#i-calendar-check"/></svg></span><span class="caption-2">couscous chaque vendredi</span></li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-img" src="assets/img/triple-burger.webp" alt="Triple burger British Flames, trois steaks, cheddar fondu et bacon" width="457" height="470" fetchpriority="high">
+          <div class="hero-badge" aria-hidden="true">
+            <svg class="icon i-fire" aria-hidden="true"><use href="#i-fire"/></svg>
+            <span class="caption-3">Chaud<br>devant</span>
+          </div>
+        </div>
+      </div>
+      <div class="flames hero-flames" aria-hidden="true">
+        <svg class="flame f-back" data-flame data-n="9" data-min="110" data-max="200" data-base="44" data-seed="7" data-h="260" preserveAspectRatio="none"></svg>
+        <svg class="flame f-mid" data-flame data-n="12" data-min="70" data-max="140" data-base="36" data-seed="21" data-h="260" preserveAspectRatio="none"></svg>
+        <svg class="flame f-front" data-flame data-n="16" data-min="36" data-max="88" data-base="28" data-seed="42" data-h="260" preserveAspectRatio="none"></svg>
+      </div>
+    </section>
+
+    <!-- Tagline -->
+    <section class="tagline" aria-label="Notre promesse">
+      <div class="container">
+        <p class="tagline-text" id="tagline">Du feu sous le grill. Du croustillant dans chaque bouchée. Le goût qui fait la différence.</p>
+      </div>
+      <div class="flames tagline-char" aria-hidden="true">
+        <svg class="flame f-char" data-flame data-n="18" data-min="20" data-max="56" data-base="12" data-seed="5" data-h="72" preserveAspectRatio="none"></svg>
+      </div>
+    </section>
+
+    <!-- Best sellers -->
+    <section class="section" id="best">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="chip caption-3"><svg class="icon i-fire" aria-hidden="true"><use href="#i-fire"/></svg> Les plus demandés</p>
+          <h2 class="section-title">Les best sellers</h2>
+          <p class="section-sub body-3">Quatre plats pour une première visite. Si vous hésitez, commencez par là.</p>
+        </header>
+        <div class="bento reveal" id="bestGrid"></div>
+        <div class="best-nav">
+          <button class="best-arrow" id="bestPrev" type="button" aria-label="Plat précédent" aria-controls="bestGrid"><svg class="icon i-arrow-down" aria-hidden="true"><use href="#i-arrow-down"/></svg></button>
+          <div class="best-dots" id="bestDots" aria-hidden="true"></div>
+          <button class="best-arrow" id="bestNext" type="button" aria-label="Plat suivant" aria-controls="bestGrid"><svg class="icon i-arrow-down" aria-hidden="true"><use href="#i-arrow-down"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="section section-menu" id="menu">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="chip caption-3"><svg class="icon i-fork-knife" aria-hidden="true"><use href="#i-fork-knife"/></svg> La carte</p>
+          <h2 class="section-title">Choisissez et savourez</h2>
+          <p class="section-sub body-3">Filtrez par famille ou cherchez un plat par son nom. Les prix sont en dirhams.</p>
+        </header>
+
+        <div class="search reveal">
+          <label class="search-field" for="search">
+            <svg class="icon i-magnifying-glass" aria-hidden="true"><use href="#i-magnifying-glass"/></svg>
+            <span class="sr-only">Chercher un plat</span>
+            <input class="body-3" id="search" type="search" placeholder="Chercher un plat : tacos, cheddar, poulet" autocomplete="off" enterkeyhint="search" autocapitalize="off" spellcheck="false">
+          </label>
+          <p class="caption-2 search-count" id="count" aria-live="polite"></p>
+        </div>
+
+        <div class="menu-body">
+        <div class="filters" id="filters">
+          <div class="filters-track" id="filtersTrack" role="group" aria-label="Filtrer la carte par famille"></div>
+        </div>
+
+        <!-- Téléphone : un seul bouton qui ouvre la liste des catégories -->
+        <div class="cat-bar" id="catBar">
+          <button class="cat-open" id="catOpen" type="button" aria-haspopup="dialog" aria-controls="catSheet" aria-expanded="false">
+            <span class="cat-thumb" id="catThumb" aria-hidden="true"></span>
+            <span class="cat-text">
+              <span class="caption-4 cat-kicker" id="catKicker">Catégorie</span>
+              <span class="title-3 cat-name" id="catName">Toute la carte</span>
+            </span>
+            <span class="caption-3 cat-count" id="catCount"></span>
+            <svg class="icon i-squares-four cat-grid-icon" aria-hidden="true"><use href="#i-squares-four"/></svg>
+          </button>
+          <button class="cat-search" id="catSearch" type="button" aria-label="Chercher un plat">
+            <svg class="icon i-magnifying-glass" aria-hidden="true"><use href="#i-magnifying-glass"/></svg>
+          </button>
+        </div>
+
+        <div class="menu-list" id="menuList"></div>
+
+        <div class="empty" id="empty" hidden>
+          <svg class="icon i-magnifying-glass" aria-hidden="true"><use href="#i-magnifying-glass"/></svg>
+          <p class="title-2" id="emptyTitle"></p>
+          <p class="body-6">Essayez un autre mot, ou revenez à la carte complète.</p>
+          <button class="btn btn-ghost button-md" id="emptyReset" type="button">Afficher toute la carte</button>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Couscous du vendredi -->
+    <section class="section" id="vendredi">
+      <div class="container">
+        <div class="feature reveal">
+          <div class="feature-copy">
+            <p class="chip caption-3" id="fridayChip"><svg class="icon i-calendar-check" aria-hidden="true"><use href="#i-calendar-check"/></svg> <span>Chaque vendredi</span></p>
+            <h2 class="feature-title">Le vendredi, c'est couscous</h2>
+            <p class="body-3 feature-sub">Trois recettes, servies uniquement le vendredi.</p>
+            <ul class="feature-list">
+              <li><span class="title-3">Couscous aux Légumes</span><span class="heading-6 amber">59<span class="caption-3"> DH</span></span></li>
+              <li><span class="title-3">Couscous au Poulet</span><span class="heading-6 amber">65<span class="caption-3"> DH</span></span></li>
+              <li><span class="title-3">Couscous au Bœuf</span><span class="heading-6 amber">69<span class="caption-3"> DH</span></span></li>
+            </ul>
+          </div>
+          <div class="feature-media">
+            <img src="assets/img/couscous-poulet.webp" alt="Couscous au poulet servi dans un plat en terre cuite" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bon à savoir -->
+    <section class="section" id="infos">
+      <div class="container container-narrow">
+        <header class="section-head reveal">
+          <p class="chip caption-3"><svg class="icon i-info" aria-hidden="true"><use href="#i-info"/></svg> Bon à savoir</p>
+          <h2 class="section-title">Menus, formules et suppléments</h2>
+        </header>
+        <div class="faq reveal">
+          <details open>
+            <summary class="title-2">Que comprend la formule menu ?<svg class="icon i-caret-down" aria-hidden="true"><use href="#i-caret-down"/></svg></summary>
+            <p class="body-3">Des frites et une boisson pour 15 DH de plus. La formule existe pour les tacos, les sandwichs shawarma et kebab, et les sandwichs baguette.</p>
+          </details>
+          <details>
+            <summary class="title-2">Le couscous, c'est quel jour ?<svg class="icon i-caret-down" aria-hidden="true"><use href="#i-caret-down"/></svg></summary>
+            <p class="body-3">Le vendredi uniquement. Légumes à 59 DH, poulet à 65 DH, bœuf à 69 DH.</p>
+          </details>
+          <details>
+            <summary class="title-2">Que contient un menu enfant ?<svg class="icon i-caret-down" aria-hidden="true"><use href="#i-caret-down"/></svg></summary>
+            <p class="body-3">Des frites, un jus et une surprise, avec au choix un mini burger, 4 nuggets ou 2 tenders. De 39 à 45 DH.</p>
+          </details>
+          <details>
+            <summary class="title-2">Avec quoi sont servis les menus poulet rôti ?<svg class="icon i-caret-down" aria-hidden="true"><use href="#i-caret-down"/></svg></summary>
+            <p class="body-3">Avec des frites, une salade et une sauce au choix. Le menu quart est à 45 DH, le menu demi à 65 DH et le menu familial poulet entier à 119 DH.</p>
+          </details>
+          <details>
+            <summary class="title-2">Quels suppléments sont possibles ?<svg class="icon i-caret-down" aria-hidden="true"><use href="#i-caret-down"/></svg></summary>
+            <p class="body-3">Du fromage sur les pommes de terre au four pour 5 DH, et du poulet dans les salades pour 10 DH.</p>
+          </details>
+          <details>
+            <summary class="title-2">Quels sont les jus frais ?<svg class="icon i-caret-down" aria-hidden="true"><use href="#i-caret-down"/></svg></summary>
+            <p class="body-3">Orange, citron, carotte, pomme ou mixte, selon la saison. 18 DH le verre.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-contact" id="contact">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="chip caption-3"><svg class="icon i-map-pin" aria-hidden="true"><use href="#i-map-pin"/></svg> Contact</p>
+          <h2 class="section-title">Où nous trouver</h2>
+        </header>
+        <div class="contact-layout reveal">
+        <div class="contact-grid">
+          <article class="info-card">
+            <svg class="icon i-map-pin" aria-hidden="true"><use href="#i-map-pin"/></svg>
+            <h3 class="title-2">Adresse</h3>
+            <p class="title-3">Desserte Qur Golf, Tanger</p>
+            <p class="body-6 info-text">Entre la Pharmacie Al Madina et le rond-point El Moujahidine, au sud du Royal Golf de Tanger.</p>
+          </article>
+          <article class="info-card">
+            <svg class="icon i-phone" aria-hidden="true"><use href="#i-phone"/></svg>
+            <h3 class="title-2">Téléphone et WhatsApp</h3>
+            <p class="todo caption-4">À compléter : numéro pour commander</p>
+          </article>
+          <article class="info-card">
+            <svg class="icon i-clock" aria-hidden="true"><use href="#i-clock"/></svg>
+            <h3 class="title-2">Horaires</h3>
+            <p class="todo caption-4">À compléter : jours et heures d'ouverture</p>
+          </article>
+        </div>
+          <div class="map-card">
+            <svg class="map-svg" viewBox="0 0 800 520" role="img" aria-labelledby="mapTitle mapDesc" preserveAspectRatio="xMidYMid slice">
+              <title id="mapTitle">Plan du quartier autour de British Flames, Tanger</title>
+              <desc id="mapDesc">British Flames se trouve sur la Desserte Qur Golf, entre la Pharmacie Al Madina et le rond-point El Moujahidine, au sud du Royal Golf de Tanger.</desc>
+              <rect class="map-bg" width="800" height="520"/>
+              <g class="map-areas"><path d="M51.5 -88.2L65.9 -91.2L97.7 -103.7L177.0 -143.1L208.0 -158.7L272.6 -191.4L384.3 -239.1L424.0 -261.8L445.0 -273.7L454.0 -277.3L461.2 -279.7L484.1 -278.5L499.1 -274.9L532.7 -271.9L588.0 -267.7L658.3 -267.1L675.7 -271.3L692.6 -277.9L709.4 -285.6L735.8 -298.8L759.3 -303.5L791.1 -310.1L824.7 -320.2L857.8 -331.0L892.6 -336.3L931.7 -338.7L936.5 -338.1L924.5 -233.1L894.4 -237.3L878.8 -239.7L861.4 -211.7L842.8 -216.4L838.6 -217.0L791.7 -166.9L785.7 -156.2L783.3 -140.1L788.1 -121.6L787.5 -109.7L781.5 -103.7L766.5 -89.4L758.7 -85.8L744.2 -81.0L728.0 -74.5L717.2 -64.9L706.4 -54.8L696.8 -45.8L690.2 -37.5L687.2 -29.1L684.1 -16.6L677.5 -3.5L674.5 10.9L673.3 16.8L664.9 27.0L629.5 72.9L598.2 112.3L582.0 129.6L564.6 142.7L548.4 148.1L530.3 151.7L513.5 150.5L503.9 152.3L407.2 173.7L402.4 171.3L395.2 174.9L386.1 181.5L378.3 183.9L373.5 170.1L369.9 161.2L347.1 165.4L327.9 173.1L314.6 173.1L278.0 179.7L274.4 183.3L232.9 188.0L225.7 182.7L201.1 181.5L137.8 184.4L125.8 134.6L140.6 108.9L273.2 93.2L170.4 6.7L49.7 -78.6L51.5 -88.2Z"/><path d="M168.6 10.3L174.0 17.4L174.0 23.4L167.4 34.1L150.0 64.0L145.8 71.1L138.6 72.3L128.4 88.4L112.2 93.2L97.7 96.8L81.2 90.6L56.5 85.2L37.2 77.4L23.5 64.7L15.4 14.4L10.0 -8.2L-4.0 -23.5L-11.2 -37.9L-10.8 -44.8L16.6 -67.2L27.7 -71.6L38.7 -77.0L45.5 -77.4L168.6 10.3Z"/><path d="M903.9 -172.2L895.6 -187.2L890.8 -198.5L842.8 -212.3L839.2 -211.7L794.1 -162.1L792.3 -156.8L790.5 -150.8L788.7 -140.7L789.3 -132.9L794.1 -119.2L792.9 -112.6L789.3 -102.5L765.3 -81.6L756.8 -81.0L744.8 -77.4L735.8 -73.3L718.4 -60.7L697.4 -37.5L692.0 -17.2L680.5 3.1L678.7 15.6L684.7 24.5L728.0 -2.3L733.4 -4.1L756.8 32.3L771.9 22.8L782.7 13.8L806.7 6.1L816.9 4.3L777.3 73.5L759.4 118.1L752.5 180.1L788.5 199.8L873.4 181.0L960.3 154.9L981.6 130.0L937.0 23.0L946.0 7.0L946.7 -11.2L944.9 -22.0L935.9 -32.7L932.3 -39.8L928.1 -50.6L925.7 -61.3L920.3 -75.0L906.5 -101.9L905.3 -119.8L896.2 -143.7L889.6 -155.6L903.9 -172.2Z"/><path d="M979.9 153.5L946.4 182.6L932.9 189.5L811.1 210.9L782.5 221.3L766.7 233.1L821.1 316.6L796.5 325.9L805.7 358.3L821.1 378.6L854.8 380.1L896.3 309.3L925.2 286.7L942.1 264.5L942.5 252.3L993.8 227.8L979.9 153.5Z"/></g>
+              <path class="map-minor" d="M527.8 376.5L517.5 400.7L514.3 410.7L505.5 433.7L498.5 452.4L492.1 471.3L483.9 498.9L477.9 514.3L473.7 525.6L468.3 536.2L463.3 544.9L460.9 548.0L456.5 552.9L448.1 564.7L440.3 577.2L436.7 582.9L428.8 596.4L419.8 612.7L411.8 627.3L404.7 639.5L398.1 654.0L393.0 665.1L392.3 666.8L388.7 676.8L386.9 681.4L385.1 685.2L384.0 688.1L382.6 690.2L380.9 692.2L378.9 694.1L362.8 720.7L351.6 741.3L341.2 763.3M597.5 648.1L593.2 632.7L590.9 623.5L591.2 619.0L592.0 614.2L593.2 608.6L596.7 601.6L599.6 595.4L604.3 582.7M146.1 564.3L152.6 561.8L154.7 561.0L162.8 557.8L169.8 554.9L175.5 553.5L187.0 551.4L200.1 551.1L211.8 550.1L224.0 548.5L236.3 547.0L247.6 545.0L271.6 541.7L287.4 538.4L299.3 534.8L307.3 532.4L316.9 528.6M361.2 326.1L359.0 325.1L354.6 323.7L349.3 323.2L340.6 322.6L327.1 324.6L317.0 326.2L308.5 326.8L300.9 327.0L299.8 327.0L290.9 326.9L285.4 327.2L281.1 327.7L278.2 328.5L273.9 330.0L266.8 333.4L259.6 336.5L251.1 340.2L230.6 347.8L226.7 350.0L225.3 351.4L224.0 353.0L223.4 354.9L222.8 356.6L223.2 360.1L225.0 364.9M340.6 322.6L337.6 312.7L334.5 305.5L328.9 293.4L321.7 278.4L318.9 272.4L314.6 264.2M954.0 397.7L932.3 396.5L920.4 397.7L907.8 401.2L893.2 406.7L866.1 416.5L838.8 425.4L834.8 426.1L830.6 426.1L826.4 424.4L822.2 422.6L818.6 420.8L814.6 416.8L812.1 412.7L809.1 407.1L803.6 398.3L800.5 395.1L798.0 390.7L795.6 383.2L793.4 371.7L791.6 356.9L790.5 327.9L788.3 306.7L785.0 298.2L777.0 282.2L767.3 266.0L760.7 253.3L749.8 233.7L738.5 213.4L736.5 210.2L730.8 201.2L725.9 194.7L721.7 189.7L716.6 184.3M659.2 121.6L671.3 136.2L683.8 148.9L697.5 163.8L703.1 169.8L709.0 176.3L716.6 184.3M556.9 586.6L579.3 587.0L604.3 582.7L616.3 578.2L630.2 576.7M687.3 382.5L672.3 338.7L666.8 325.2L658.5 310.0L654.3 304.1L646.2 294.4L624.7 271.4M411.5 482.9L400.6 476.4M619.4 275.5L611.8 265.9L605.2 256.1L597.7 247.2L592.2 239.9L588.1 234.9M631.7 561.8L611.0 553.8L566.8 539.1M319.1 511.9L345.5 497.7M665.4 400.0L638.2 360.5M301.2 333.7L300.6 341.8L299.9 355.6L299.1 371.3L298.5 386.2M432.1 418.8L409.5 427.6L399.1 431.6L390.8 433.6L384.2 435.8L381.8 436.7L378.9 437.9L376.0 439.5L373.5 441.4L371.8 443.4M291.2 254.7L286.0 242.4L279.2 224.9L274.6 214.1L273.4 212.4L271.9 211.7L269.0 211.8L265.3 212.9L258.9 215.5L239.1 222.8L219.0 230.0L213.7 231.9L210.1 233.1L206.2 234.2L209.1 240.5L210.6 244.3L215.1 254.0L223.2 274.2L233.6 300.5L236.1 306.7L239.4 315.0L242.7 322.6L247.2 331.7L251.1 340.2M260.5 433.4L285.0 445.8L314.7 459.8L354.9 479.5L383.0 493.5M372.3 349.4L391.5 339.9M352.0 394.6L339.0 366.6L323.6 330.4M408.5 335.2L413.1 323.1L415.2 312.6L406.1 304.2M312.2 394.2L296.1 428.9M588.1 234.9L591.8 231.1L595.2 227.7L600.2 223.2L604.0 219.3L610.7 212.9L618.7 206.2L628.8 198.2L634.4 193.7L637.9 190.4L642.4 185.6L647.2 180.9L655.8 173.4L667.7 162.9L674.7 157.0L683.8 148.9M436.2 289.8L433.3 346.1L432.0 358.7L431.2 365.7L430.6 393.0L432.1 418.8L431.4 452.1L431.6 458.6L432.1 465.3L431.8 471.2L431.6 475.0L430.9 477.6L429.5 480.2L428.5 482.2L426.4 484.4L424.7 485.8L422.5 486.6L420.2 487.7L418.1 486.3L415.6 485.3L411.5 482.9M630.2 172.9L649.9 155.3L671.3 136.2L676.9 130.2L683.1 124.9L688.8 119.6L695.2 114.0L703.3 105.9L714.5 95.4L720.0 89.6L723.6 86.0M503.4 654.1L504.3 643.3L505.0 635.5L506.7 627.5L508.5 620.7M250.4 423.5L250.9 425.8L251.8 427.6L254.4 429.6L260.5 433.4L262.2 437.1L264.4 441.1L265.0 442.1L267.7 446.2L279.3 461.1L301.4 489.3L313.0 503.7L315.8 507.5L319.1 511.9L323.3 516.5L324.7 518.2L325.6 519.7L325.9 521.1L325.8 522.5L325.4 523.4L324.1 525.0M174.0 271.7L190.4 265.1L198.2 261.6L206.4 257.9L215.1 254.0M259.1 410.4L265.5 404.7L267.0 403.5L269.2 401.7L272.4 399.7L275.8 397.5L284.1 393.7L298.5 386.2L322.9 373.9L339.0 366.6L356.1 359.4M387.9 451.9L394.0 441.1L396.4 436.7L399.1 431.6M410.0 352.5L409.7 340.9L409.4 337.7L408.5 335.2L407.8 334.4L406.0 334.1L404.8 334.3L402.4 335.1L397.9 337.0L391.5 339.9M721.5 314.8L720.7 314.9L719.9 315.2L703.8 322.3L672.3 338.7L638.2 360.5L601.4 384.6M323.0 442.6L319.6 449.3L314.7 459.8L309.5 470.9L306.0 478.7L301.4 489.3M579.3 587.0L579.5 606.0L579.7 625.6L579.1 637.4M397.2 479.9L392.4 476.7L388.8 474.7L380.1 469.7L355.9 458.0L323.0 442.6L310.3 436.0L304.4 432.8L296.1 428.9L272.5 416.8L259.1 410.4M631.4 683.8L623.2 661.3L615.3 640.4L612.1 633.9L611.6 630.3L611.6 624.0L613.1 617.6L617.7 607.6L624.5 594.0L628.3 584.9L630.2 576.7L631.7 561.8L632.1 543.8L632.2 540.7L632.1 531.4L632.0 521.1L630.5 512.6L627.1 492.3L626.9 480.0L625.6 470.9L625.2 466.2L624.6 461.5L622.9 455.1L618.3 444.2M759.5 98.9L754.1 97.0L746.8 94.2L731.3 88.6L723.6 86.0L719.3 84.5L716.4 84.2L714.1 84.2L711.4 84.5L708.3 85.9L702.1 88.4L695.0 91.6L689.5 94.1L681.6 98.4L677.2 101.3L674.0 103.3L671.7 105.5L669.6 108.2L667.3 111.4L663.3 116.2L659.2 121.6L655.1 125.8L647.8 133.2L639.9 139.8L628.9 148.9L624.9 151.8L619.9 154.7L611.3 159.4L604.6 163.6L596.8 169.9L585.8 178.0L576.3 185.9L565.2 195.0M433.3 346.1L424.4 348.4L419.2 349.8L410.0 352.5L378.9 363.7L361.8 370.8M174.0 271.7L168.7 274.6L166.0 275.8L163.2 277.1L161.8 279.4L161.3 283.9L161.2 289.6L161.3 293.8L162.2 296.3L163.9 297.7L166.1 297.7L171.2 296.4L180.0 293.1L203.8 283.4L215.3 278.4L223.2 274.2M503.4 654.1L497.7 651.7L492.1 648.2L489.1 645.6L488.0 644.0L487.5 642.7L487.2 641.2L487.4 637.6L488.1 633.7L489.5 630.5L492.9 627.6L500.0 624.0L508.5 620.7L519.0 618.3L525.4 617.8L533.5 619.8M610.9 523.9L593.0 525.1M593.2 608.6L579.5 606.0L566.6 604.9L562.8 605.1L560.1 605.7L558.7 606.6L556.7 609.0L547.8 624.0M378.9 363.7L372.3 349.4L361.2 326.1M364.8 507.2L368.3 505.4L370.8 503.5L377.8 498.2L383.0 493.5L386.0 490.6L397.2 479.9L400.6 476.4L404.8 469.2L406.6 465.5L408.1 461.2L411.5 454.0L413.1 448.9L413.6 445.4L413.1 440.3L412.4 436.6L411.6 433.5L409.5 427.6L405.3 417.3L400.0 402.7L398.1 398.1L396.4 395.2L394.4 392.8L392.4 391.2L387.9 388.7L382.7 386.2L377.9 384.1L374.1 383.0L370.0 380.4L367.6 378.4L365.4 375.9L361.8 370.8L359.1 365.2L356.1 359.4L340.6 322.6M539.2 695.0L526.2 659.5L525.6 652.8L526.1 645.1L527.5 638.4L530.6 627.5L533.5 619.8M611.0 553.8L611.4 542.9L611.7 533.7L611.5 528.8L610.9 523.9L609.9 520.8L608.9 517.6L607.3 510.3L606.8 503.2L606.8 472.6L606.4 467.5L607.2 463.3L608.6 459.9L618.3 444.2L621.9 436.3M683.1 124.9L686.9 130.0L692.8 136.0L703.7 146.4M588.1 234.9L585.6 237.5L584.5 238.2L582.2 239.1L580.5 239.4L578.6 238.8L576.9 236.8L575.4 233.9L573.5 228.6L572.0 224.6L568.5 211.4L566.0 199.5L565.2 195.0M431.2 365.7L420.2 369.7L404.5 374.3L393.2 378.0L385.9 380.7L377.9 384.1L352.0 394.6L343.2 397.5L334.9 400.3L329.8 401.1L327.9 401.0L326.4 401.0L324.2 400.6L320.7 399.2L317.8 397.5L312.2 394.2L308.9 392.4L304.7 390.2L298.5 386.2M233.0 685.2L232.0 681.7L230.4 677.9L227.9 672.0L226.2 666.1L226.0 661.9L227.1 655.2L228.8 637.2L230.6 620.1L231.4 616.4L233.2 613.8M124.3 451.8L86.4 432.8M328.2 609.0L326.7 611.6L324.9 614.9L322.5 619.5L318.7 626.8L314.4 635.0L311.2 640.9L309.1 644.7L302.7 661.6M222.8 489.9L223.3 490.0L224.1 490.3L225.7 491.4L229.7 496.0L234.1 500.7L261.7 528.7L263.9 530.9L267.1 534.1L268.6 535.9L270.0 538.0L270.9 539.4L271.6 541.7L272.2 545.8L273.2 551.2L276.8 568.9L280.6 581.4L283.0 585.4L286.1 591.2L288.0 597.0L289.8 604.9L293.3 621.7L298.1 644.3L299.0 648.2L301.1 656.9L302.7 661.6L304.7 664.0L306.7 665.8L309.0 667.2L311.5 668.2L338.7 676.8L351.3 681.5L366.2 687.7L371.7 690.1L374.9 691.5L378.9 694.1M901.3 -164.7L895.7 -155.7L890.2 -145.5L856.9 -81.0L832.6 -36.1L811.4 2.4L789.8 38.3L772.3 71.9L764.6 87.6L762.5 92.3L759.5 98.9L754.4 111.2L742.8 134.3L728.4 163.5L721.1 176.9L716.6 184.3L712.1 190.9L705.4 198.2L698.5 205.9L689.6 214.9L681.1 223.0L669.1 233.9L642.9 256.6L624.7 271.4L619.4 275.5L595.1 295.3L573.7 312.1L568.5 316.1M720.4 370.6L703.8 322.3M646.8 200.0L649.4 202.9L650.9 204.2L652.3 204.1L654.3 203.5L656.1 202.1L670.3 189.0L684.3 176.1L697.5 163.8M629.5 181.4L637.9 190.4L646.8 200.0M572.0 224.6L588.9 208.4L597.6 201.0L609.8 190.3L615.6 185.1L620.8 181.0M565.2 195.0L557.6 198.3L551.6 200.9L547.7 203.8L546.3 205.7L546.1 208.2L546.8 211.7L548.8 217.1L549.6 219.1L550.4 221.2L552.6 225.5L554.9 229.2L556.6 230.9L559.3 231.7L561.7 231.6L564.5 230.5L568.2 228.1L572.0 224.6M780.9 399.2L782.8 403.0L783.8 404.5L816.4 451.3L817.2 452.1L817.7 452.4L818.3 452.5M616.3 578.2L607.4 576.4L561.4 560.6M411.8 627.3L432.2 640.0L452.5 652.4L473.9 663.2L490.6 672.6L527.0 695.0M210.9 507.6L231.2 527.5L237.9 534.1L247.6 545.0M187.0 551.4L198.5 529.1L210.9 507.6L215.3 500.2M554.4 452.1L551.2 452.3L550.9 453.9L548.7 459.9L546.5 465.3L543.1 472.0L533.5 495.4L526.5 514.9L524.1 526.7L521.1 538.6L518.1 552.7L517.0 558.3L514.7 566.0L509.7 593.2L508.7 598.4L507.2 602.0L504.5 603.8M86.4 432.8L79.7 429.1L77.1 425.7L75.6 422.4L75.3 418.8L75.4 415.5L78.0 412.0L81.2 408.4L87.2 402.9L94.9 396.9L101.7 391.9L109.7 386.0M81.2 408.4L69.0 390.6M98.3 370.0L109.7 386.0L117.7 393.9L131.5 407.4L145.1 421.2L161.8 435.2L183.9 453.6L192.9 460.9L198.1 465.1L200.5 467.8L201.5 469.2L201.8 470.4L202.1 473.1L201.5 475.6L200.5 478.0L197.7 482.8L193.8 490.4L182.9 511.2L165.2 495.1L156.1 486.1L136.2 466.5M371.8 443.4L387.9 451.9L408.1 461.2L421.2 466.8L431.8 471.2M301.2 333.7L303.0 335.5L304.3 336.7L306.7 340.0L308.2 342.7L310.0 346.2L313.9 354.6L318.2 363.6L322.9 373.9L332.0 393.8L334.9 400.3M327.1 324.6L327.1 325.9L326.5 327.2L325.9 328.2L324.9 329.4L323.6 330.4L320.7 331.4L317.2 332.7L313.1 333.7L309.4 334.4L303.0 335.5M306.0 478.7L315.8 483.3L327.2 488.6L345.5 497.7L355.9 502.6M26.4 434.4L50.0 444.7L78.2 457.5L94.5 465.2L100.7 468.7L103.7 471.0L106.3 473.6L108.2 476.4L110.0 479.6L112.4 487.7L118.0 501.5L120.3 508.1L124.8 518.0L128.2 528.5L131.6 537.4M430.2 285.9L426.1 288.9L422.3 291.8L416.3 296.4L409.6 301.5L406.1 304.2L396.6 312.6L393.2 315.8L390.9 317.9L380.5 327.2L376.5 331.4L374.8 331.8L372.9 332.1L371.2 331.5L369.1 330.8L367.3 329.6L361.2 326.1M225.3 422.0L219.2 424.6L210.6 428.4L208.2 428.9L206.5 428.8L204.0 427.8L201.1 425.8L191.7 416.8L154.5 377.7L150.1 373.5L147.7 370.8L145.8 368.1L142.3 361.9L138.7 354.6L133.4 346.3M239.4 415.3L229.1 420.1L225.3 422.0M225.0 364.9L230.8 379.4L241.0 403.7L242.4 407.0L243.3 409.4L243.4 411.6L242.4 413.1L239.4 415.3M720.4 370.6L724.0 369.2L725.6 369.1L726.9 369.2L727.9 369.4L728.7 369.9L729.5 371.0L730.6 373.0L735.5 387.1L739.0 395.9M721.5 314.8L723.0 314.9L723.8 315.4L724.8 316.7L737.0 336.7L738.9 339.6L739.8 340.4L741.0 341.1L742.2 341.3L743.3 341.2L744.7 340.9L746.3 340.0L749.0 338.2L756.1 331.8M-16.3 370.5L3.0 358.4L7.2 356.5M38.2 342.7L34.6 346.4L32.5 346.9L29.8 346.2L28.2 343.8L26.0 337.8L20.8 322.8L18.4 319.1L17.3 318.1L16.0 318.0L13.7 319.0L9.2 321.8L1.1 328.1L-2.0 331.7L-2.7 334.2L-2.6 336.7L-1.7 339.9L1.0 344.4L7.2 356.5M72.9 387.9L55.1 365.7L38.2 342.7L52.6 335.2L55.3 334.4L58.2 334.3L61.5 335.2L63.7 337.3L66.8 341.0L72.7 348.7M7.2 356.5L14.3 369.5L16.8 373.8L19.7 377.2L22.6 379.5L26.6 380.9L30.0 381.0L33.0 380.6L35.7 379.2L39.7 376.8L55.1 365.7M587.8 531.8L593.0 525.1L599.5 513.3L602.1 509.3L606.8 503.2M638.2 421.5L652.3 412.0L665.4 400.0L676.5 390.6L687.3 382.5L699.0 377.9L715.7 372.4L720.4 370.6M621.9 436.3L630.5 427.8L634.7 424.0M695.2 114.0L700.4 118.8L702.4 120.2L704.4 120.5L706.2 120.3L708.8 119.2L718.7 113.6L723.4 111.5L726.3 109.8L727.6 108.5L728.4 106.0L728.8 102.5L729.6 97.3L730.4 93.5L731.3 88.6M611.3 233.6L626.5 219.8L641.9 205.4L646.8 200.0M600.2 223.2L611.3 233.6L615.1 237.8L617.9 240.8L618.7 241.7L619.2 242.7L619.0 244.4L618.3 245.4L615.2 248.1L610.8 251.7L605.2 256.1M611.3 159.4L622.2 171.5M631.3 175.0L630.2 172.9L627.9 171.1L625.0 170.6L622.2 171.5L620.2 173.3L619.2 175.9L619.4 178.6L620.8 181.0L623.5 182.7L626.6 182.8L629.5 181.4L630.9 179.5L631.5 177.3L631.3 175.0M-95.1 105.3L-57.1 101.6L-44.8 103.1L-34.2 108.0L-11.0 121.4L6.0 132.8L9.9 138.3L12.5 146.5L12.0 179.6L9.8 215.6L9.0 230.5L8.9 238.6L10.1 241.3L13.3 246.0L51.7 286.5L66.8 300.6L80.5 314.5L99.5 332.9L110.3 344.3L113.4 345.2L116.4 345.1L128.2 339.5L133.4 346.3M730.4 287.4L741.5 305.2L756.1 331.8L763.3 344.5M760.6 292.3L769.3 308.2L771.5 311.7L773.6 313.1L775.6 313.2L777.3 313.2L779.6 312.5L788.3 306.7M777.0 282.2L760.6 292.3L741.5 305.2M511.7 238.5L520.9 245.7L524.1 250.1L526.8 253.5L527.7 254.7L528.5 255.7L529.5 256.3L530.9 256.7L532.7 256.6L534.1 255.7L539.2 251.0L551.7 239.1L556.1 234.6L559.3 231.7M549.6 219.1L541.6 225.2L534.5 230.4L528.1 235.1L524.5 237.2L515.4 237.0L513.6 237.4L511.7 238.5L509.1 241.0L506.6 244.0L503.6 247.8L495.1 253.9M547.7 203.8L544.7 199.1L539.7 191.8L534.7 183.3L529.0 173.8L525.1 166.5L522.5 158.8L520.5 152.5L519.7 151.7L518.8 151.3L517.9 150.3L515.7 150.0L513.9 149.7L510.2 150.2L503.4 151.3L490.7 153.8L467.3 158.9L459.2 160.7M528.1 235.1L525.8 232.3L524.1 229.6L522.4 225.7L520.5 221.0L518.1 212.9L515.5 204.4L511.5 191.0M527.7 254.7L524.5 257.7L520.6 262.2L515.8 269.3L509.8 278.0L506.3 282.6L503.6 285.3L501.2 286.3L499.4 286.4L497.0 285.0L495.7 282.9L494.2 279.5L493.2 275.9L492.1 268.2L489.7 260.4L489.0 257.6L492.1 255.8L495.1 253.9M424.9 282.4L428.1 266.0M429.7 243.3L442.7 242.5L454.6 239.6L458.5 238.3L461.5 236.7L467.4 234.9L468.7 234.5L472.6 233.6L476.9 233.6L480.5 234.0L482.9 235.6L485.9 238.5L486.5 241.5L488.2 255.0L489.0 257.6M371.8 443.4L363.7 440.2L357.2 438.0L354.2 436.9L353.4 436.5L353.0 435.9L352.8 435.2L352.5 434.2L352.8 432.7L354.9 427.9L357.3 423.7L359.6 420.4L362.2 417.6L365.4 414.8L368.2 413.0L376.9 409.5L390.6 405.0L400.0 402.7L413.0 398.5L425.5 394.6L430.6 393.0M301.2 333.7L300.9 327.0M267.9 611.3L271.6 623.3L279.7 656.2L284.0 674.2L287.9 693.0M369.9 273.9L377.0 278.8L395.3 291.3L409.6 301.5M366.0 295.9L372.3 300.4L378.4 305.1L393.2 315.8M361.2 326.1L363.3 311.7L366.0 295.9L369.9 273.9L373.1 253.3M265.0 442.1L244.7 450.8M324.1 525.0L328.3 524.2L331.8 523.5L334.8 522.5L338.0 521.4L343.1 518.9L352.6 513.5L357.3 511.0L359.9 509.9L362.4 509.2L364.8 507.2M327.9 401.0L323.2 410.0L319.4 417.3L310.3 436.0M266.8 487.8L273.9 495.4L280.5 503.2L284.0 507.6L292.0 516.8M261.7 528.7L268.0 526.5L292.0 516.8L294.0 516.1L304.9 511.7L315.8 507.5M514.3 410.7L527.8 415.6L545.7 423.3L555.2 427.1L557.7 428.2L559.0 428.8L560.6 430.4L561.1 432.1L561.2 433.5L560.6 435.8L559.7 440.0L554.4 452.1M424.5 702.3L426.6 699.1L430.8 692.5L438.7 678.8L449.3 659.1L452.5 652.4M314.4 635.0L327.1 639.7L371.2 656.5L393.0 665.1M124.8 518.0L131.6 514.1L134.5 511.4L136.5 509.7L137.8 508.7L139.7 510.3L141.7 511.7L145.1 514.5L157.2 525.3L166.3 533.4L168.8 533.4L170.9 531.5L182.9 511.2M225.3 422.0L221.8 417.1L217.2 409.3L212.9 402.8L203.8 389.7L189.6 367.8M482.2 600.3L452.5 652.4M718.1 623.1L705.5 627.7L697.7 630.5L679.5 638.5L666.9 645.0L663.9 646.0L661.8 646.2L659.8 645.9L658.3 644.5L656.8 640.3L655.7 636.7L654.8 632.5L654.7 628.6L656.0 622.3L657.5 618.3L659.6 614.2L662.9 610.1L665.3 607.9L667.4 605.9L668.7 604.2L670.0 601.6L671.2 596.4L672.3 589.0L672.6 582.7L672.8 576.5L673.1 571.0L673.1 568.8L673.0 565.8L673.8 560.9M137.8 508.7L156.1 486.1L183.9 453.6M138.2 -2.6L142.1 10.3L142.9 23.6L140.5 36.8L135.2 49.0L118.3 69.3L100.6 87.6L92.3 91.4L81.4 92.7L68.0 90.6L45.4 82.8L36.5 77.9L19.5 59.5M340.8 254.0L341.2 249.1L343.6 244.2L372.2 210.6L379.6 203.7L380.6 201.3L380.5 198.9L379.5 195.4L376.3 190.6L375.5 187.2L375.6 182.4L376.3 178.5M317.4 -50.6L345.9 -85.2L365.4 -99.7L377.3 -107.5M506.7 -276.8L504.3 -275.4L503.1 -273.0L502.4 -269.5L494.4 -224.5L493.0 -220.5L490.5 -215.4L488.4 -211.3L485.6 -206.7L482.9 -203.0L430.3 -151.3L394.6 -119.2L387.2 -114.2L382.6 -110.4L377.3 -107.5L374.3 -109.7L351.5 -122.6L343.8 -125.6M527.8 376.5L532.5 369.8L537.7 363.8L546.7 359.8M530.0 351.5L527.8 376.5M559.4 340.0L560.0 336.9L561.1 330.2L563.7 323.6L568.5 316.1M568.5 316.1L541.4 328.7M798.0 390.7L780.9 399.2L779.3 400.2L778.1 401.7L777.6 403.3L777.5 405.2L777.8 406.4L778.2 407.8L779.2 410.0L780.8 412.2L782.2 415.1L783.1 417.2L783.8 419.1L783.7 421.2L783.0 422.9L781.9 424.2L778.5 425.7L747.4 438.0L734.1 442.9L667.6 471.8L653.4 479.2L651.6 481.2L650.2 485.8L650.1 489.0L651.8 494.7L655.0 504.3L661.1 522.8L664.9 534.2L673.8 560.9L697.7 630.5M369.7 601.6L411.8 627.3M376.0 588.3L383.8 572.0M369.7 601.6L376.0 588.3M391.3 556.4L406.0 565.0L436.7 582.9M383.8 572.0L391.3 556.4M391.3 556.4L380.3 551.3L371.9 551.0L355.8 559.6M327.9 569.8L332.0 586.9L332.8 588.4L336.9 590.2L369.7 601.6M355.8 559.6L383.8 572.0M428.8 596.4L383.8 572.0M419.8 612.7L376.0 588.3M327.9 569.8L376.0 588.3M355.8 559.6L349.7 561.3L344.1 562.0L334.8 559.9L329.7 560.7L327.0 564.3L327.9 569.8M360.2 621.3L369.7 601.6M154.4 580.7L199.0 579.3L276.8 568.9M146.1 564.3L154.4 580.7L165.1 606.8L188.1 663.3L204.6 703.7L210.7 718.5L240.2 786.2M139.1 553.5L73.4 579.8M463.3 544.9L490.9 558.5L514.7 566.0M206.2 234.2L199.1 234.7L194.9 234.6L193.4 234.9L184.4 237.5L107.8 266.9M477.5 584.4L490.9 558.5L500.2 529.3M404.7 639.5L378.2 628.8M283.0 585.4L286.6 584.4L302.4 580.8L305.6 581.6L309.9 585.3L310.9 586.3L313.6 588.8L317.4 594.6L323.9 605.9L328.2 609.0M254.4 613.3L253.4 624.3L251.8 632.6L250.7 640.2L251.3 647.6L255.1 680.6L256.3 692.2L257.5 694.9L260.6 699.6L263.3 704.1M131.6 537.4L139.1 553.5L141.5 557.5L142.8 559.3L143.7 560.4L144.5 561.4L145.3 562.7L146.1 564.3M324.1 525.0L321.0 526.9L316.9 528.6M259.1 410.4L255.5 413.7L253.6 415.7L251.6 418.3L250.5 421.0L250.4 423.5M526.2 659.5L518.2 660.0L514.8 659.7L510.8 658.2L503.4 654.1M533.5 619.8L547.8 624.0L560.3 628.3L566.3 630.9L570.8 633.3L576.4 638.4M233.2 613.8L235.4 612.9L238.1 612.9L244.6 613.3L250.3 613.6L254.4 613.3L260.2 613.0L267.9 611.3L278.6 608.4L289.8 604.9M355.9 502.6L359.4 504.6L362.0 505.3L364.8 507.2M215.3 500.2L219.2 494.0L220.6 491.9L221.4 490.8L222.0 490.3L222.4 490.0L222.8 489.9M504.5 603.8L501.9 604.0L495.8 603.6L490.8 602.6L482.2 600.3L473.6 596.3L461.0 589.3L440.3 577.2M505.5 433.7L528.7 441.3L540.2 445.6L546.8 448.6L549.8 450.0L550.6 450.4L554.4 452.1M293.3 621.7L310.9 586.3L332.8 588.4M378.2 628.8L360.2 621.3L333.4 611.3L328.2 609.0M254.4 613.3L259.3 593.9L260.0 592.6L261.7 590.8L283.0 585.4M292.5 691.9L302.7 661.6M736.5 210.2L747.3 199.3L751.7 196.5L758.6 193.9L769.7 190.9L774.6 189.8L781.7 188.7L786.8 187.6L793.0 187.5L797.1 190.0L803.1 194.1L806.0 206.1M769.7 190.9L768.5 184.9L767.7 179.3L761.1 163.1L759.4 159.7L758.4 157.6L756.9 153.1L756.7 151.1L756.3 147.8M759.4 159.7L774.3 154.3L795.5 147.8M452.9 294.2L456.0 284.8L457.6 280.6L459.1 269.2M381.7 212.0L375.9 253.9M306.9 237.7L318.1 262.5M128.2 339.5L122.3 325.5L106.5 279.7L104.7 276.3L101.6 273.4L97.6 272.9L93.5 273.6L51.7 286.5L37.0 298.7L36.6 300.0L36.9 301.5L64.2 329.9L86.5 353.1M204.0 427.8L212.5 449.3M227.9 480.3L249.6 509.2L257.3 516.7L268.0 526.5M-37.8 289.8L-52.1 268.2L-48.1 258.8L-32.6 246.0L-12.0 234.8L-1.4 234.3L9.0 230.5M163.3 331.4L157.6 315.5L157.9 310.2L163.9 297.7M222.6 465.3L219.7 465.0L212.9 466.2L211.0 464.5L210.4 463.1L209.7 459.0L210.1 456.7L211.0 454.6L212.5 449.3M112.4 487.7L98.0 503.1L95.4 505.9L92.2 508.0L49.5 523.9M80.5 314.5L64.2 329.9M13.3 246.0L-3.1 262.0L27.3 294.9M66.8 300.6L83.7 295.8L86.1 295.7L88.8 295.9L90.0 297.5L99.5 332.9M777.6 403.3L773.8 400.0L767.8 387.0L766.5 384.9L764.2 384.2L761.5 384.6L742.5 396.9L740.7 397.1L739.0 395.9M734.1 442.9L722.6 420.6L718.7 417.1L706.1 412.5L700.9 409.5L697.4 404.7L687.3 382.5M634.7 424.0L638.2 421.5M728.7 369.9L751.3 353.7L754.8 352.5L761.5 354.5L765.0 359.0L766.3 367.7L764.2 384.2M801.2 238.1L826.6 223.3L851.2 210.2M818.9 269.8L801.2 238.1L795.0 227.2L797.1 224.0L820.6 217.2L824.2 219.4L826.6 223.3L845.8 254.4L862.5 285.7M377.8 498.2L386.9 515.3L388.5 516.5L432.7 512.4M420.2 487.7L395.7 491.4L386.0 490.6M359.6 420.4L323.2 410.0M192.9 460.9L202.6 450.2L203.1 448.5L203.5 446.0L202.6 443.5L196.0 433.0L194.1 430.8L177.4 413.9M219.2 424.6L234.3 456.1L254.3 495.4M255.5 413.7L253.8 408.1L249.9 395.3L244.8 379.2L238.5 361.7M273.4 353.4L254.0 352.9L252.2 354.0L251.7 355.9L252.5 358.6L267.0 403.5M273.9 330.0L273.4 353.4L272.4 399.7M-3.1 262.0L-37.8 289.8L-63.4 310.2M9.0 230.5L23.0 225.7L36.6 219.3L64.9 216.1"/>
+              <path class="map-foot" d="M456.5 552.9L422.6 555.1L419.1 555.5L415.2 556.0L412.5 556.9M-80.7 288.9L-76.6 284.3L-73.3 285.2L-69.8 285.9L-64.7 286.6L-59.4 287.1L-57.3 286.1L-57.2 280.0L-55.4 265.1L-51.4 255.9L-47.2 250.7L-35.9 244.5L-27.0 237.0L-15.7 232.8L-7.4 230.1L-2.4 228.5L0.2 221.1L1.5 214.5L2.9 206.8L3.9 197.5L5.7 172.1L7.7 156.8L9.3 150.1L7.6 143.1L3.9 137.3L-10.1 128.1L-26.4 118.7L-43.5 109.9L-52.1 106.9L-58.7 107.3L-63.0 109.9L-65.5 112.0M243.4 411.6L251.3 409.0L253.8 408.1M1.5 214.5L9.8 215.6M201.8 470.4L206.2 470.7L206.9 471.1L207.2 472.5L207.1 474.3L207.7 476.5L219.8 482.1L221.1 483.0L221.2 484.8L222.4 490.0M222.6 465.3L212.5 449.3M459.6 266.5L465.1 253.5M459.1 269.2L459.6 266.5M468.7 234.5L467.9 242.7L465.1 253.5M227.9 480.3L227.6 476.6L224.3 467.7L222.6 465.3M640.9 492.1L650.1 489.0M637.8 478.1L640.9 492.1L644.2 508.0L648.3 526.6L650.5 538.5M626.9 480.0L637.8 478.1L651.1 475.6L651.6 476.1L651.6 477.1L653.4 479.2M630.5 512.6L644.2 508.0L655.0 504.3M632.1 531.4L648.3 526.6L661.1 522.8M632.1 543.8L650.5 538.5L664.9 534.2"/>
+              <path class="map-major-case" d="M692.8 537.1L740.9 522.6L751.3 519.4L755.5 518.4L760.1 518.0L764.7 518.7L770.9 520.3L781.1 524.4L797.1 531.2L811.9 538.8L832.8 548.5L857.5 557.5L875.1 562.9L935.2 577.1L945.1 579.4L976.6 586.6L986.3 589.0L996.2 590.2L1002.9 590.0L1008.9 589.4M22.9 419.3L32.5 413.5L42.1 407.4L52.8 400.8L69.0 390.6L72.9 387.9L98.3 370.0L108.7 361.6L119.5 354.2L133.4 346.3L146.0 339.6L154.9 335.0L163.3 331.4L173.0 327.3L211.0 310.0L233.6 300.5L262.4 287.7L288.5 275.3L305.8 268.0L314.6 264.2L318.1 262.5L332.5 257.4L340.8 254.0L347.3 252.2L351.4 251.6L356.1 251.0L365.3 251.8L373.1 253.3L375.9 253.9L380.8 255.1L390.4 259.3L401.6 266.3L411.2 273.0L421.8 280.3L424.9 282.4L430.2 285.9L436.2 289.8L452.9 294.2L461.0 297.5L468.8 301.9L480.3 310.4L489.6 317.6L501.8 326.2L505.9 328.5L510.3 331.1L516.4 333.5M692.8 537.1L702.8 568.6L717.2 620.4L718.1 623.1L726.4 653.7L730.6 669.0L740.1 701.2L747.6 724.8L753.0 740.6L759.9 758.5L765.4 773.6L768.5 780.9L784.8 815.1L803.2 846.5M578.2 361.1L587.8 371.2L601.4 384.6L618.5 398.8L629.7 410.5L638.2 421.5L645.7 430.2L654.5 444.2L663.3 461.6L667.6 471.8L671.0 479.7L683.1 509.1L692.8 537.1M516.4 333.5L522.6 338.6L528.2 345.2M535.3 331.1L530.6 331.9L526.0 332.7L516.4 333.5M552.8 357.4L557.1 356.6L561.9 356.2L569.0 357.2L578.2 361.1M578.2 361.1L571.3 351.6L559.8 344.6M559.9 343.3L559.4 340.0L558.1 337.0L556.3 334.2L553.9 331.9L551.1 330.1L548.0 329.0L544.8 328.5L541.4 328.7M749.8 233.7L792.3 209.6L806.0 206.1L853.7 195.8L929.9 182.5L963.4 163.7L988.6 136.3M528.2 345.2L528.7 348.4L530.0 351.5L531.8 354.2L534.2 356.5L537.0 358.3L540.1 359.5L543.3 360.0L546.7 359.8L549.9 358.9L552.8 357.4L555.4 355.3L557.4 352.7L558.9 349.8L559.7 346.6L559.8 344.6L559.9 343.3M535.3 331.1L532.7 333.2L530.7 335.7L529.2 338.7L528.3 341.9L528.2 345.2M541.4 328.7L538.2 329.5L535.3 331.1M16.8 445.5L20.1 443.6L22.9 441.0L25.0 437.9L26.4 434.4L26.9 430.4L26.5 426.4L25.1 422.6L22.9 419.3M559.9 343.3L587.3 336.2L616.1 330.2L626.8 326.7L642.7 320.3L658.5 310.0L667.7 302.1L680.2 288.3L696.8 271.1L711.5 258.5L735.0 242.1L749.8 233.7"/>
+              <path class="map-major" d="M692.8 537.1L740.9 522.6L751.3 519.4L755.5 518.4L760.1 518.0L764.7 518.7L770.9 520.3L781.1 524.4L797.1 531.2L811.9 538.8L832.8 548.5L857.5 557.5L875.1 562.9L935.2 577.1L945.1 579.4L976.6 586.6L986.3 589.0L996.2 590.2L1002.9 590.0L1008.9 589.4M22.9 419.3L32.5 413.5L42.1 407.4L52.8 400.8L69.0 390.6L72.9 387.9L98.3 370.0L108.7 361.6L119.5 354.2L133.4 346.3L146.0 339.6L154.9 335.0L163.3 331.4L173.0 327.3L211.0 310.0L233.6 300.5L262.4 287.7L288.5 275.3L305.8 268.0L314.6 264.2L318.1 262.5L332.5 257.4L340.8 254.0L347.3 252.2L351.4 251.6L356.1 251.0L365.3 251.8L373.1 253.3L375.9 253.9L380.8 255.1L390.4 259.3L401.6 266.3L411.2 273.0L421.8 280.3L424.9 282.4L430.2 285.9L436.2 289.8L452.9 294.2L461.0 297.5L468.8 301.9L480.3 310.4L489.6 317.6L501.8 326.2L505.9 328.5L510.3 331.1L516.4 333.5M692.8 537.1L702.8 568.6L717.2 620.4L718.1 623.1L726.4 653.7L730.6 669.0L740.1 701.2L747.6 724.8L753.0 740.6L759.9 758.5L765.4 773.6L768.5 780.9L784.8 815.1L803.2 846.5M578.2 361.1L587.8 371.2L601.4 384.6L618.5 398.8L629.7 410.5L638.2 421.5L645.7 430.2L654.5 444.2L663.3 461.6L667.6 471.8L671.0 479.7L683.1 509.1L692.8 537.1M516.4 333.5L522.6 338.6L528.2 345.2M535.3 331.1L530.6 331.9L526.0 332.7L516.4 333.5M552.8 357.4L557.1 356.6L561.9 356.2L569.0 357.2L578.2 361.1M578.2 361.1L571.3 351.6L559.8 344.6M559.9 343.3L559.4 340.0L558.1 337.0L556.3 334.2L553.9 331.9L551.1 330.1L548.0 329.0L544.8 328.5L541.4 328.7M749.8 233.7L792.3 209.6L806.0 206.1L853.7 195.8L929.9 182.5L963.4 163.7L988.6 136.3M528.2 345.2L528.7 348.4L530.0 351.5L531.8 354.2L534.2 356.5L537.0 358.3L540.1 359.5L543.3 360.0L546.7 359.8L549.9 358.9L552.8 357.4L555.4 355.3L557.4 352.7L558.9 349.8L559.7 346.6L559.8 344.6L559.9 343.3M535.3 331.1L532.7 333.2L530.7 335.7L529.2 338.7L528.3 341.9L528.2 345.2M541.4 328.7L538.2 329.5L535.3 331.1M16.8 445.5L20.1 443.6L22.9 441.0L25.0 437.9L26.4 434.4L26.9 430.4L26.5 426.4L25.1 422.6L22.9 419.3M559.9 343.3L587.3 336.2L616.1 330.2L626.8 326.7L642.7 320.3L658.5 310.0L667.7 302.1L680.2 288.3L696.8 271.1L711.5 258.5L735.0 242.1L749.8 233.7"/>
+              <path id="mapMainRoad" class="map-guide" d="M22.9 419.3L32.5 413.5L42.1 407.4L52.8 400.8L69.0 390.6L72.9 387.9L98.3 370.0L108.7 361.6L119.5 354.2L133.4 346.3L146.0 339.6L154.9 335.0L163.3 331.4L173.0 327.3L211.0 310.0L233.6 300.5L262.4 287.7L288.5 275.3L305.8 268.0L314.6 264.2L318.1 262.5L332.5 257.4L340.8 254.0L347.3 252.2L351.4 251.6L356.1 251.0L365.3 251.8L373.1 253.3L375.9 253.9L380.8 255.1L390.4 259.3L401.6 266.3L411.2 273.0L421.8 280.3L424.9 282.4L430.2 285.9L436.2 289.8L452.9 294.2L461.0 297.5L468.8 301.9L480.3 310.4L489.6 317.6L501.8 326.2L505.9 328.5L510.3 331.1L516.4 333.5"/>
+              <text class="map-road"><textPath href="#mapMainRoad" startOffset="17%">Desserte Qur Golf</textPath></text>
+              <text class="map-area-label" x="472.1" y="69.9" text-anchor="middle">Royal Golf de Tanger</text>
+              <text class="map-area-label" x="197.7" y="69.9" text-anchor="middle">Club de Cricket</text>
+              <g class="map-poi"><circle cx="575.2" cy="315.2" r="4"/><text x="559.2" y="337.2" text-anchor="end">Rond-point El Moujahidine</text></g><g class="map-poi"><circle cx="590.3" cy="294.0" r="4"/><text x="580.3" y="286.0" text-anchor="end">Mosquée Mekki Nassiri</text></g><g class="map-poi"><circle cx="244.2" cy="302.9" r="4"/><text x="254.2" y="306.9" text-anchor="start">Pharmacie Al Madina</text></g><g class="map-poi"><circle cx="501.8" cy="497.5" r="4"/><text x="511.8" y="501.5" text-anchor="start">Masjid Bab Al Andalouss</text></g>
+              <g class="map-pin" transform="translate(400.0 275.0)">
+                <circle class="map-pulse" r="34"/>
+                <circle class="map-ring" r="34"/>
+                <circle class="map-dot" r="19"/>
+                <path class="map-flame" transform="translate(-12 -13) scale(0.094)" d="M143.38,17.85a8,8,0,0,0-12.63,3.41l-22,60.41L84.59,58.26a8,8,0,0,0-11.93.89C51,87.53,40,116.08,40,144a88,88,0,0,0,176,0C216,84.55,165.21,36,143.38,17.85Z"/>
+              </g>
+              <g class="map-tag" transform="translate(400.0 219.0)">
+                <rect x="-74" y="-15" width="148" height="30" rx="8"/>
+                <circle cx="-56" cy="0" r="4"/>
+                <text x="8" y="5" text-anchor="middle">British Flames</text>
+              </g>
+            </svg>
+            <a class="map-open button-sm" href="https://www.google.com/maps/place/British+flames/@35.7677567,-5.8547017,712m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd0b87520cdd7987:0xe0621b3fa31eca86!8m2!3d35.7677568!4d-5.8500883!16s%2Fg%2F11xmk7pttb" target="_blank" rel="noopener">Ouvrir dans Google Maps <svg class="icon i-arrow-up" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+          </div>
+        </div>
+        <div class="final-cta reveal">
+          <a class="btn btn-primary button-md" href="#menu">Voir le menu <svg class="icon i-arrow-up" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+        </div>
+      </div>
+      <div class="flames footer-flames" aria-hidden="true">
+        <svg class="flame f-back" data-flame data-n="12" data-min="40" data-max="100" data-base="16" data-seed="11" data-h="120" preserveAspectRatio="none"></svg>
+        <svg class="flame f-mid" data-flame data-n="17" data-min="24" data-max="64" data-base="12" data-seed="29" data-h="120" preserveAspectRatio="none"></svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="British Flames" width="382" height="104" loading="lazy">
+        <p class="body-6">Le goût qui fait la différence.</p>
+      </div>
+      <nav class="footer-links" aria-label="Liens du pied de page">
+        <a class="caption-1" href="#best">Best sellers</a>
+        <a class="caption-1" href="#menu">La carte</a>
+        <a class="caption-1" href="#vendredi">Couscous</a>
+        <a class="caption-1" href="#infos">Bon à savoir</a>
+        <a class="caption-1" href="#contact">Contact</a>
+      </nav>
+      <p class="caption-5 footer-copy">© 2026 British Flames. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Feuille des catégories (téléphone) -->
+  <div class="cat-sheet" id="catSheet" hidden>
+    <div class="cat-backdrop" data-close></div>
+    <div class="cat-panel" role="dialog" aria-modal="true" aria-labelledby="catSheetTitle">
+      <div class="cat-handle-zone" id="catHandle"><span class="cat-handle"></span></div>
+      <div class="cat-head">
+        <h2 class="heading-6" id="catSheetTitle">Choisir une catégorie</h2>
+        <button class="cat-close" type="button" data-close aria-label="Fermer">
+          <svg class="icon i-x" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+    </div>
+  </div>
+
+  <script src="js/menu-data.js"></script>
+  <script src="js/app.js"></script>
+</div>
