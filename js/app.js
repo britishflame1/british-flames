@@ -5,6 +5,12 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Traduction : fournie par i18n.js, sinon le texte français tel quel.
+  const T = window.BF_T || ((text, vars) => {
+    let out = text;
+    if (vars) Object.keys(vars).forEach((k) => { out = out.split(`{${k}}`).join(vars[k]); });
+    return out;
+  });
 
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const norm = (s) => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/œ/g, "oe");
@@ -84,7 +90,7 @@
 
   /* ---------- Prix ---------- */
   function priceHTML(item) {
-    if (item.p == null) return `<span class="price-todo caption-4">Prix à confirmer</span>`;
+    if (item.p == null) return `<span class="price-todo caption-4">${T("Prix à confirmer")}</span>`;
     const rows = Array.isArray(item.p) ? item.p : [["", item.p]];
     return rows.map(([label, value]) =>
       `<span class="price">${label ? `<span class="caption-2 price-label">${esc(label)}</span>` : ""}<span class="heading-6 price-val">${value}<span class="caption-3"> DH</span></span></span>`
@@ -106,7 +112,7 @@
           <img class="${it.fit === "contain" ? "contain" : ""}" src="${img(it.img)}" alt="${esc(it.n)}" loading="lazy" decoding="async">
         </div>
         <div class="card-body">
-          <p class="sr-only">Numéro ${it.best} des best sellers</p>
+          <p class="sr-only">${T("Numéro {n} des best sellers", { n: it.best })}</p>
           <h3 class="heading-6">${esc(it.bn || it.n)}</h3>
           <p class="caption-2 best-cat">${esc(cat.title)}</p>
           <div class="card-prices">${priceHTML(it)}</div>
@@ -131,7 +137,7 @@
   if (statCats) statCats.textContent = MENU.length;
 
   function itemHTML(it, cat) {
-    const flag = it.best ? `<span class="flag caption-3"><svg class="icon i-fire" aria-hidden="true"><use href="#i-fire"/></svg>Best seller</span>` : "";
+    const flag = it.best ? `<span class="flag caption-3"><svg class="icon i-fire" aria-hidden="true"><use href="#i-fire"/></svg>${T("Best seller")}</span>` : "";
     const desc = it.d ? `<p class="caption-2 card-desc">${esc(it.d)}</p>` : "";
     const key = esc(norm(`${it.n} ${cat.title} ${cat.label} ${it.d || ""}`));
     return `
@@ -153,7 +159,7 @@
 
   if (list && filters && track) {
     track.innerHTML =
-      `<button class="filter button-sm" type="button" data-cat="all" aria-pressed="true">Tout <span class="n caption-4">${total}</span></button>` +
+      `<button class="filter button-sm" type="button" data-cat="all" aria-pressed="true">${T("Tout")} <span class="n caption-4">${total}</span></button>` +
       MENU.map((c) => `<button class="filter button-sm" type="button" data-cat="${c.id}" aria-pressed="false">${esc(c.label)} <span class="n caption-4">${c.items.length}</span></button>`).join("");
 
     list.innerHTML = MENU.map((c) => `
@@ -169,7 +175,7 @@
       </section>`).join("");
 
     const groups = $$(".group", list);
-    const plural = (n) => `${n} ${n > 1 ? "plats" : "plat"}`;
+    const plural = (n) => `${n} ${T(n > 1 ? "plats" : "plat")}`;
 
     function apply(animate) {
       const q = norm(search.value.trim());
@@ -199,11 +205,13 @@
       });
 
       empty.hidden = shown !== 0;
-      if (shown === 0) emptyTitle.textContent = `Aucun plat ne correspond à « ${search.value.trim()} »`;
+      if (shown === 0) emptyTitle.textContent = T("Aucun plat ne correspond à « {q} »", { q: search.value.trim() });
 
       const cat = MENU.find((c) => c.id === active);
-      const scope = cat ? cat.title : "Toute la carte";
-      countEl.textContent = q ? `${plural(shown)} pour « ${search.value.trim()} » dans : ${scope}` : `${scope} : ${plural(shown)}`;
+      const scope = cat ? cat.title : T("Toute la carte");
+      countEl.textContent = q
+        ? T("{count} pour « {q} » dans : {scope}", { count: plural(shown), q: search.value.trim(), scope })
+        : T("{scope} : {count}", { scope, count: plural(shown) });
     }
 
     function setActive(id, scroll) {
@@ -252,16 +260,16 @@
       const seen = !cat && inView ? MENU.find((c) => c.id === inView) : null;
       const shownIn = (id) => $$(".item:not([hidden])", $(`#cat-${id}`)).length;
       if (cat) {
-        catKicker.textContent = "Catégorie";
+        catKicker.textContent = T("Catégorie");
         catName.textContent = cat.label;
         catCount.textContent = shownIn(cat.id);
       } else if (seen) {
-        catKicker.textContent = "Toute la carte";
+        catKicker.textContent = T("Toute la carte");
         catName.textContent = seen.label;
         catCount.textContent = shownIn(seen.id);
       } else {
-        catKicker.textContent = "Catégorie";
-        catName.textContent = "Toute la carte";
+        catKicker.textContent = T("Catégorie");
+        catName.textContent = T("Toute la carte");
         catCount.textContent = total;
       }
       const key = (cat || seen || { id: "all" }).id;
@@ -269,7 +277,7 @@
         catThumb.dataset.key = key;
         catThumb.innerHTML = thumbOf(cat || seen);
       }
-      catOpen.setAttribute("aria-label", `Changer de catégorie. Actuellement : ${cat ? cat.title : "toute la carte"}`);
+      catOpen.setAttribute("aria-label", T("Changer de catégorie. Actuellement : {name}", { name: cat ? cat.title : T("toute la carte") }));
       // Nom trop long pour une ligne : on retire la petite ligne du dessus et le nom passe sur deux lignes.
       catOpen.classList.remove("long");
       if (catName.scrollWidth > catName.clientWidth + 1) catOpen.classList.add("long");
@@ -287,11 +295,11 @@
 
     if (catOpen && sheet && catGrid) {
       const panelEl = $(".cat-panel", sheet);
-      const tiles = [{ id: "all", title: "Toute la carte", n: total }].concat(MENU.map((c) => ({ id: c.id, title: c.label, n: c.items.length, c })));
+      const tiles = [{ id: "all", title: T("Toute la carte"), n: total }].concat(MENU.map((c) => ({ id: c.id, title: c.label, n: c.items.length, c })));
       catGrid.innerHTML = tiles.map((t) => `
         <button class="cat-tile" type="button" data-cat="${t.id}" aria-pressed="false">
           <span class="cat-tile-thumb ${t.c ? "" : "all"}" aria-hidden="true">${t.c ? `<img src="${img(t.c.items[0].img)}" alt="" class="${t.c.list ? "contain" : ""}" loading="lazy" decoding="async">` : fireIcon}</span>
-          <span class="cat-tile-text"><span class="body-5 cat-tile-name">${esc(t.title)}</span><span class="caption-5 cat-tile-n">${t.n > 1 ? `${t.n} plats` : `${t.n} plat`}</span></span>
+          <span class="cat-tile-text"><span class="body-5 cat-tile-name">${esc(t.title)}</span><span class="caption-5 cat-tile-n">${plural(t.n)}</span></span>
         </button>`).join("");
 
       let closeTimer = 0;
@@ -443,14 +451,14 @@
 
   /* ---------- Vendredi ---------- */
   const friday = $("#fridayChip span");
-  if (friday && new Date().getDay() === 5) friday.textContent = "Disponible aujourd'hui";
+  if (friday && new Date().getDay() === 5) friday.textContent = T("Disponible aujourd'hui");
 
   /* ---------- Navigation ---------- */
   const toggle = $("#navToggle");
   const panel = $("#navPanel");
   function setMenu(open) {
     toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Fermer le menu de navigation" : "Ouvrir le menu de navigation");
+    toggle.setAttribute("aria-label", T(open ? "Fermer le menu de navigation" : "Ouvrir le menu de navigation"));
     document.body.style.overflow = open ? "hidden" : "";
     if (open) {
       panel.hidden = false;
@@ -506,7 +514,7 @@
     if (phone.matches) {
       bestGrid.setAttribute("tabindex", "0");
       bestGrid.setAttribute("role", "region");
-      bestGrid.setAttribute("aria-label", "Best sellers, faites défiler horizontalement");
+      bestGrid.setAttribute("aria-label", T("Best sellers, faites défiler horizontalement"));
     } else {
       bestGrid.removeAttribute("tabindex");
       bestGrid.removeAttribute("role");
