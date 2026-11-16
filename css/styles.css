@@ -1100,3 +1100,13 @@ a, button, summary { touch-action: manipulation; }
 @media (prefers-reduced-motion: reduce) {
   .menu-glow { animation: none; }
 }
+
+/* Flamme qui suit le curseur (créée par js/cursor-fire.js) */
+.cursor-fire {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
