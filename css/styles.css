@@ -1054,3 +1054,25 @@ a, button, summary { touch-action: manipulation; }
   .nav-logo img { height: 28px; }
   .nav-bar { padding-left: var(--s-100); }
 }
+
+/* ---------- Feu d'ambiance derrière la carte ---------- */
+/* Une couche de la hauteur de l'écran reste en place pendant qu'on fait défiler la carte.
+   Ton sur ton : elle se devine entre les cartes sans gêner la lecture. */
+.section-menu { --fx-h: 100vh; }
+@supports (height: 100svh) {
+  .section-menu { --fx-h: 100svh; }
+}
+.menu-fx {
+  position: sticky; top: 0; z-index: 0;
+  height: var(--fx-h); margin-bottom: calc(var(--fx-h) * -1);
+  overflow: hidden; pointer-events: none;
+}
+.section-menu > .container { position: relative; z-index: 1; }
+.menu-fx .embers { opacity: 0.5; }
+.menu-fx .ember { bottom: var(--s-400); }
+.menu-flames { height: 120px; }
+.f-deep { fill: #220B06; animation-duration: 5.2s; }
+.f-glow { fill: #3A1208; animation-duration: 3.8s; animation-delay: -1.4s; }
+@media (min-width: 768px) {
+  .menu-flames { height: 190px; }
+}

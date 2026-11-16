@@ -69,24 +69,27 @@
   });
 
   /* ---------- Braises ---------- */
-  const embers = $("#embers");
-  if (embers && !reduced) {
-    const r = rng(99);
+  // host : conteneur ; count : nombre de braises ; slow : plus lentes et plus hautes (ambiance de la carte)
+  function spawnEmbers(host, count, seed, slow) {
+    if (!host || reduced) return;
+    const r = rng(seed);
     const colors = ["#FFB81C", "#FF6B0A", "#FFD84A", "#F2331F"];
-    const count = window.innerWidth < 640 ? 12 : 30;
     for (let i = 0; i < count; i++) {
       const e = document.createElement("span");
       e.className = "ember";
       e.style.left = `${(r() * 100).toFixed(1)}%`;
       e.style.setProperty("--size", `${2 + Math.round(r() * 3)}px`);
       e.style.setProperty("--c", colors[Math.floor(r() * colors.length)]);
-      e.style.setProperty("--dur", `${(4 + r() * 5).toFixed(2)}s`);
-      e.style.setProperty("--delay", `${(-r() * 9).toFixed(2)}s`);
-      e.style.setProperty("--drift", `${Math.round((r() - 0.5) * 120)}px`);
-      e.style.setProperty("--lift", `${-Math.round(220 + r() * 360)}px`);
-      embers.appendChild(e);
+      e.style.setProperty("--dur", `${((slow ? 9 : 4) + r() * (slow ? 8 : 5)).toFixed(2)}s`);
+      e.style.setProperty("--delay", `${(-r() * (slow ? 17 : 9)).toFixed(2)}s`);
+      e.style.setProperty("--drift", `${Math.round((r() - 0.5) * (slow ? 160 : 120))}px`);
+      e.style.setProperty("--lift", `${-Math.round(slow ? window.innerHeight * (0.55 + r() * 0.4) : 220 + r() * 360)}px`);
+      host.appendChild(e);
     }
   }
+  const small = window.innerWidth < 640;
+  spawnEmbers($("#embers"), small ? 12 : 30, 99, false);
+  spawnEmbers($("#menuEmbers"), small ? 8 : 16, 314, true);
 
   /* ---------- Prix ---------- */
   function priceHTML(item) {
