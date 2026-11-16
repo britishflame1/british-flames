@@ -1055,9 +1055,10 @@ a, button, summary { touch-action: manipulation; }
   .nav-bar { padding-left: var(--s-100); }
 }
 
-/* ---------- Feu d'ambiance derrière la carte ---------- */
-/* Une couche de la hauteur de l'écran reste en place pendant qu'on fait défiler la carte.
-   Ton sur ton : elle se devine entre les cartes sans gêner la lecture. */
+/* ---------- Fond de la carte : feu de cheminée ---------- */
+/* Une couche de la hauteur de l'écran reste en place pendant qu'on fait défiler la carte :
+   lueur chaude qui respire, grandes flammes sombres sur toute la largeur, braises lentes.
+   Les cartes sont légèrement translucides pour laisser passer la chaleur sans gêner la lecture. */
 .section-menu { --fx-h: 100vh; }
 @supports (height: 100svh) {
   .section-menu { --fx-h: 100svh; }
@@ -1068,11 +1069,34 @@ a, button, summary { touch-action: manipulation; }
   overflow: hidden; pointer-events: none;
 }
 .section-menu > .container { position: relative; z-index: 1; }
-.menu-fx .embers { opacity: 0.5; }
+.menu-glow {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 105%, rgba(255, 107, 10, 0.34), transparent 70%),
+    radial-gradient(ellipse 45% 50% at 8% 100%, rgba(216, 25, 32, 0.30), transparent 70%),
+    radial-gradient(ellipse 45% 50% at 92% 100%, rgba(216, 25, 32, 0.30), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 100%, rgba(120, 30, 10, 0.34), transparent 75%);
+  animation: hearth 7s var(--ease-loop) infinite alternate;
+}
+@keyframes hearth {
+  0% { opacity: 0.72; }
+  45% { opacity: 1; }
+  100% { opacity: 0.82; }
+}
+.menu-flames { height: 86%; }
+.f-hearth-3 { fill: #26100A; animation-duration: 6.4s; }
+.f-hearth-2 { fill: #3B140B; animation-duration: 5s; animation-delay: -1.8s; }
+.f-hearth-1 { fill: #5A1C0C; animation-duration: 3.9s; animation-delay: -0.9s; }
+.menu-fx .embers { opacity: 0.75; }
 .menu-fx .ember { bottom: var(--s-400); }
-.menu-flames { height: 120px; }
-.f-deep { fill: #220B06; animation-duration: 5.2s; }
-.f-glow { fill: #3A1208; animation-duration: 3.8s; animation-delay: -1.4s; }
-@media (min-width: 768px) {
-  .menu-flames { height: 190px; }
+
+/* Cartes et barres de la carte : assez sombres pour lire, assez translucides pour sentir le feu */
+.section-menu .item { background: rgba(0, 0, 0, 0.66); border-color: rgba(255, 244, 220, 0.14); }
+.section-menu .item .card-media { background: var(--black); }
+.section-menu .search-field { background: rgba(31, 31, 31, 0.82); }
+@media (max-width: 767px) {
+  .menu-flames { height: 68%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-glow { animation: none; }
 }

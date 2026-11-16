@@ -89,7 +89,7 @@
   }
   const small = window.innerWidth < 640;
   spawnEmbers($("#embers"), small ? 12 : 30, 99, false);
-  spawnEmbers($("#menuEmbers"), small ? 8 : 16, 314, true);
+  spawnEmbers($("#menuEmbers"), small ? 14 : 28, 314, true);
 
   /* ---------- Prix ---------- */
   function priceHTML(item) {

@@ -109,13 +109,15 @@
 
     <!-- Menu -->
     <section class="section section-menu" id="menu">
-      <!-- Feu d'ambiance derrière la carte : braises lentes et flammes sombres en bas de l'écran -->
+      <!-- Fond de la carte : un feu de cheminée qui occupe tout l'écran derrière les plats -->
       <div class="menu-fx" aria-hidden="true">
-        <div class="embers" id="menuEmbers"></div>
+        <div class="menu-glow"></div>
         <div class="flames menu-flames">
-          <svg class="flame f-deep" data-flame data-n="7" data-min="60" data-max="150" data-base="24" data-seed="63" data-h="190" preserveAspectRatio="none"></svg>
-          <svg class="flame f-glow" data-flame data-n="11" data-min="30" data-max="90" data-base="18" data-seed="88" data-h="190" preserveAspectRatio="none"></svg>
+          <svg class="flame f-hearth-3" data-flame data-n="5" data-min="230" data-max="370" data-base="30" data-seed="63" data-h="400" preserveAspectRatio="none"></svg>
+          <svg class="flame f-hearth-2" data-flame data-n="7" data-min="140" data-max="260" data-base="30" data-seed="88" data-h="400" preserveAspectRatio="none"></svg>
+          <svg class="flame f-hearth-1" data-flame data-n="10" data-min="60" data-max="150" data-base="26" data-seed="17" data-h="400" preserveAspectRatio="none"></svg>
         </div>
+        <div class="embers" id="menuEmbers"></div>
       </div>
       <div class="container">
         <header class="section-head reveal">
