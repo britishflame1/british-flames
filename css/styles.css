@@ -1110,3 +1110,24 @@ a, button, summary { touch-action: manipulation; }
   pointer-events: none;
   z-index: 9999;
 }
+
+/* Bouton pour allumer ou éteindre la flamme du curseur (ordinateur uniquement) */
+.fire-toggle {
+  position: fixed; right: var(--s-200); bottom: var(--s-200); z-index: 10000;
+  display: inline-flex; align-items: center; gap: var(--s-75);
+  min-height: 40px; padding: 0 var(--s-200);
+  color: var(--cream); background: rgba(31, 31, 31, 0.88);
+  border: 1px solid var(--orange); border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: border-color 300ms var(--ease), color 300ms var(--ease), transform 500ms var(--ease);
+}
+.fire-toggle:active { transform: scale(0.98); }
+.fire-toggle[aria-pressed="false"] { border-color: var(--line); color: var(--muted); }
+.fire-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--amber); box-shadow: 0 0 8px var(--orange);
+}
+.fire-toggle[aria-pressed="false"] .fire-dot { background: #555; box-shadow: none; }
+@media (hover: none), (pointer: coarse) { .fire-toggle { display: none; } }

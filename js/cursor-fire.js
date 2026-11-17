@@ -1,14 +1,42 @@
-/* Flamme qui suit le curseur : ordinateur uniquement (souris), désactivée si l'utilisateur réduit les animations. */
+/* Flamme qui suit le curseur, avec un bouton pour l'allumer ou l'éteindre.
+   Ordinateur uniquement (souris). Le choix du visiteur est retenu ; si son système
+   demande de réduire les animations, la flamme démarre éteinte. */
 (function () {
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!fine || reduce) return;
+  if (!fine) return;
 
   var cv = document.createElement("canvas");
   if (!cv.getContext) return;
   cv.className = "cursor-fire";
   cv.setAttribute("aria-hidden", "true");
   document.body.appendChild(cv);
+
+  var T = function (s) { return window.BF_T ? window.BF_T(s) : s; };
+  var btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "fire-toggle caption-3";
+  btn.innerHTML = '<span class="fire-dot" aria-hidden="true"></span><span class="fire-label"></span>';
+  document.body.appendChild(btn);
+  var label = btn.querySelector(".fire-label");
+
+  var KEY = "bf-cursor-fire";
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (err) { /* stockage indisponible */ }
+  var on = saved === "on" ? true : saved === "off" ? false : !reduce;
+
+  function paintButton() {
+    btn.setAttribute("aria-pressed", String(on));
+    label.textContent = T(on ? "Flamme curseur : activée" : "Flamme curseur : désactivée");
+  }
+  btn.addEventListener("click", function () {
+    on = !on;
+    try { localStorage.setItem(KEY, on ? "on" : "off"); } catch (err) { /* stockage indisponible */ }
+    paintButton();
+    if (on) start();
+  });
+  document.addEventListener("bf:lang", paintButton);
+  paintButton();
 
   var ctx = cv.getContext("2d");
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -27,7 +55,7 @@
     mx = e.clientX; my = e.clientY;
     if (!inside) { px = mx; py = my; }
     inside = true;
-    start();
+    if (on) start();
   });
   document.addEventListener("pointerleave", function () { inside = false; });
   addEventListener("blur", function () { inside = false; });
@@ -57,12 +85,12 @@
     ctx.globalCompositeOperation = "source-over";
     ctx.clearRect(0, 0, W, H);
 
-    if (inside) {
+    if (on && inside) {
       var speed = Math.hypot(mx - px, my - py);
       var steps = Math.max(1, Math.floor(speed / 11));
       for (var s = 1; s <= steps; s++) spawn(px + (mx - px) * s / steps, py + (my - py) * s / steps, speed / steps);
-      px = mx; py = my;
     }
+    px = mx; py = my;
 
     ctx.globalCompositeOperation = "lighter";
     for (var i = parts.length - 1; i >= 0; i--) {
@@ -84,8 +112,8 @@
     }
     if (parts.length > 450) parts.splice(0, parts.length - 450);
 
-    // S'arrête quand le curseur est sorti et que les dernières braises sont éteintes
-    if (inside || parts.length) requestAnimationFrame(tick);
+    // S'arrête quand la flamme est éteinte (ou le curseur sorti) et que les dernières braises ont disparu
+    if ((on && inside) || parts.length) requestAnimationFrame(tick);
     else { running = false; ctx.clearRect(0, 0, W, H); }
   }
 })();

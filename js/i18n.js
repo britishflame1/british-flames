@@ -126,6 +126,10 @@
       "British Flames is on Desserte Qur Golf, between Pharmacie Al Madina and the El Moujahidine roundabout, south of the Royal Golf de Tanger.",
     "Ouvrir dans Google Maps": "Open in Google Maps",
 
+    /* ----- Flamme du curseur ----- */
+    "Flamme curseur : activée": "Cursor flame: on",
+    "Flamme curseur : désactivée": "Cursor flame: off",
+
     /* ----- Pied de page ----- */
     "Le goût qui fait la différence.": "The taste that makes all the difference.",
     "Liens du pied de page": "Footer links",
@@ -361,6 +365,10 @@
     "British Flames se trouve sur la Desserte Qur Golf, entre la Pharmacie Al Madina et le rond-point El Moujahidine, au sud du Royal Golf de Tanger.":
       "British Flames está en la Desserte Qur Golf, entre la Pharmacie Al Madina y la rotonda El Moujahidine, al sur del Royal Golf de Tánger.",
     "Ouvrir dans Google Maps": "Abrir en Google Maps",
+
+    /* ----- Flamme du curseur ----- */
+    "Flamme curseur : activée": "Llama del cursor: activada",
+    "Flamme curseur : désactivée": "Llama del cursor: desactivada",
 
     /* ----- Pied de page ----- */
     "Le goût qui fait la différence.": "El sabor que marca la diferencia.",

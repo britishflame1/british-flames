@@ -30,7 +30,7 @@ Puis ouvrir http://localhost:4173.
 - `index.html` : la page du site
 - `css/styles.css` : les styles
 - `js/app.js` : la carte, les filtres, la recherche et les animations
-- `js/cursor-fire.js` : la flamme qui suit le curseur sur ordinateur
+- `js/cursor-fire.js` : la flamme qui suit le curseur sur ordinateur, et son bouton pour l'allumer ou l'éteindre
 - `js/menu-data.js` : les plats et les prix
 - `js/i18n.js` : les traductions anglaises et espagnoles et le bouton de langue
 - `assets/` : le logo et les photos des plats
