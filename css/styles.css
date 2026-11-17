@@ -219,7 +219,7 @@ a, button, summary { touch-action: manipulation; }
 }
 .nav-logo { display: flex; align-items: center; min-height: 44px; margin-right: auto; border-radius: var(--r-md); }
 .nav-logo img { height: 36px; width: auto; }
-.nav-links { display: none; align-items: center; gap: var(--s-300); }
+.nav-links { display: none; align-items: center; gap: var(--s-300); white-space: nowrap; }
 .nav-links a {
   color: var(--muted); position: relative; padding-block: var(--s-75);
   transition: color 300ms var(--ease);

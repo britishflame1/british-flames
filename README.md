@@ -11,10 +11,11 @@ Un plat sans prix affiche « Prix à confirmer ».
 
 ## Langues
 
-Le site est en français et en anglais, avec un bouton FR / EN dans la barre de navigation.
-Le français est écrit dans la page et dans `js/menu-data.js` ; les traductions anglaises sont dans [`js/i18n.js`](js/i18n.js).
-Quand vous ajoutez un plat ou un texte, ajoutez aussi sa traduction dans ce fichier, sinon il reste affiché en français.
-Un lien terminé par `#en` ouvre directement la version anglaise.
+Le site est en français, en anglais et en espagnol, avec un bouton FR / EN / ES dans la barre de navigation.
+Le changement de langue se fait sur place, sans recharger la page.
+Le français est écrit dans la page et dans `js/menu-data.js` ; les traductions anglaises (`EN`) et espagnoles (`ES`) sont dans [`js/i18n.js`](js/i18n.js).
+Quand vous ajoutez un plat ou un texte, ajoutez aussi sa traduction dans les deux listes, sinon il reste affiché en français.
+Un lien terminé par `#en` ou `#es` ouvre directement la version anglaise ou espagnole.
 
 ## Lancer en local
 
@@ -29,7 +30,8 @@ Puis ouvrir http://localhost:4173.
 - `index.html` : la page du site
 - `css/styles.css` : les styles
 - `js/app.js` : la carte, les filtres, la recherche et les animations
+- `js/cursor-fire.js` : la flamme qui suit le curseur sur ordinateur
 - `js/menu-data.js` : les plats et les prix
-- `js/i18n.js` : les traductions anglaises et le bouton de langue
+- `js/i18n.js` : les traductions anglaises et espagnoles et le bouton de langue
 - `assets/` : le logo et les photos des plats
 - `british-flames.html` : version de la page publiée comme Artifact Claude

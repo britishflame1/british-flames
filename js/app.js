@@ -15,6 +15,9 @@
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const norm = (s) => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/œ/g, "oe");
   const img = (name) => `assets/img/${name}.webp`;
+  // Changement de langue (i18n.js) : chaque partie construite ici se redessine.
+  const onLang = [];
+  document.addEventListener("bf:lang", () => onLang.forEach((fn) => fn()));
 
   /* ---------- Flammes en aplats ---------- */
   function rng(seed) {
@@ -105,11 +108,7 @@
   const best = [];
   MENU.forEach((cat) => cat.items.forEach((it) => { if (it.best) best.push({ it, cat }); }));
   best.sort((a, b) => a.it.best - b.it.best);
-  if (bestGrid) {
-    bestGrid.innerHTML = best.slice(0, 4).map(({ it, cat }, i) => {
-      const tall = i === 0 || i === 3;
-      return `
-      <article class="card best b${i + 1} ${tall ? "tall" : ""}" style="--ratio:${cat.ratio || "1 / 1"}">
+  const bestInner = ({ it, cat }) => `
         <div class="card-media">
           <span class="flag caption-3" aria-hidden="true"><svg class="icon i-fire" aria-hidden="true"><use href="#i-fire"/></svg>N°${it.best}</span>
           <img class="${it.fit === "contain" ? "contain" : ""}" src="${img(it.img)}" alt="${esc(it.n)}" loading="lazy" decoding="async">
@@ -119,9 +118,15 @@
           <h3 class="heading-6">${esc(it.bn || it.n)}</h3>
           <p class="caption-2 best-cat">${esc(cat.title)}</p>
           <div class="card-prices">${priceHTML(it)}</div>
-        </div>
-      </article>`;
+        </div>`;
+  if (bestGrid) {
+    bestGrid.innerHTML = best.slice(0, 4).map((b, i) => {
+      const tall = i === 0 || i === 3;
+      return `<article class="card best b${i + 1} ${tall ? "tall" : ""}" style="--ratio:${b.cat.ratio || "1 / 1"}">${bestInner(b)}</article>`;
     }).join("");
+    onLang.push(() => {
+      Array.from(bestGrid.children).forEach((card, i) => { card.innerHTML = bestInner(best[i]); });
+    });
   }
 
   /* ---------- Carte ---------- */
@@ -142,7 +147,10 @@
   function itemHTML(it, cat) {
     const flag = it.best ? `<span class="flag caption-3"><svg class="icon i-fire" aria-hidden="true"><use href="#i-fire"/></svg>${T("Best seller")}</span>` : "";
     const desc = it.d ? `<p class="caption-2 card-desc">${esc(it.d)}</p>` : "";
-    const key = esc(norm(`${it.n} ${cat.title} ${cat.label} ${it.d || ""}`));
+    // La recherche trouve le nom dans la langue affichée et aussi en français.
+    const fr = it.fr || {};
+    const catFr = cat.fr || {};
+    const key = esc(norm(`${it.n} ${cat.title} ${cat.label} ${it.d || ""} ${fr.n || ""} ${catFr.title || ""} ${catFr.label || ""}`));
     return `
       <article class="card item ${cat.list ? "row" : ""}" data-key="${key}">
         <div class="card-media">
@@ -161,12 +169,12 @@
   const track = $("#filtersTrack");
 
   if (list && filters && track) {
-    track.innerHTML =
-      `<button class="filter button-sm" type="button" data-cat="all" aria-pressed="true">${T("Tout")} <span class="n caption-4">${total}</span></button>` +
-      MENU.map((c) => `<button class="filter button-sm" type="button" data-cat="${c.id}" aria-pressed="false">${esc(c.label)} <span class="n caption-4">${c.items.length}</span></button>`).join("");
+    const filtersHTML = () =>
+      `<button class="filter button-sm" type="button" data-cat="all" aria-pressed="${active === "all"}">${T("Tout")} <span class="n caption-4">${total}</span></button>` +
+      MENU.map((c) => `<button class="filter button-sm" type="button" data-cat="${c.id}" aria-pressed="${active === c.id}">${esc(c.label)} <span class="n caption-4">${c.items.length}</span></button>`).join("");
+    track.innerHTML = filtersHTML();
 
-    list.innerHTML = MENU.map((c) => `
-      <section class="group" id="cat-${c.id}" data-cat="${c.id}" aria-labelledby="t-${c.id}">
+    const groupInner = (c) => `
         <header class="group-head">
           <h3 class="group-title" id="t-${c.id}">${esc(c.title)}</h3>
           <span class="caption-2 group-count"></span>
@@ -174,11 +182,12 @@
         </header>
         <div class="grid ${c.wide ? "wide" : ""} ${c.list ? "list" : ""}" style="--ratio:${c.ratio || "1 / 1"}">
           ${c.items.map((it) => itemHTML(it, c)).join("")}
-        </div>
-      </section>`).join("");
+        </div>`;
+    list.innerHTML = MENU.map((c) => `<section class="group" id="cat-${c.id}" data-cat="${c.id}" aria-labelledby="t-${c.id}">${groupInner(c)}</section>`).join("");
 
     const groups = $$(".group", list);
-    const plural = (n) => `${n} ${T(n > 1 ? "plats" : "plat")}`;
+    // Singulier pour 1 ; en français aussi pour 0 (« 0 plat »), pluriel en anglais et en espagnol.
+    const plural = (n) => `${n} ${T(n === 1 || (n === 0 && (window.BF_LANG || "fr") === "fr") ? "plat" : "plats")}`;
 
     function apply(animate) {
       const q = norm(search.value.trim());
@@ -298,12 +307,13 @@
 
     if (catOpen && sheet && catGrid) {
       const panelEl = $(".cat-panel", sheet);
-      const tiles = [{ id: "all", title: T("Toute la carte"), n: total }].concat(MENU.map((c) => ({ id: c.id, title: c.label, n: c.items.length, c })));
-      catGrid.innerHTML = tiles.map((t) => `
+      const tilesHTML = () => [{ id: "all", title: T("Toute la carte"), n: total }].concat(MENU.map((c) => ({ id: c.id, title: c.label, n: c.items.length, c }))).map((t) => `
         <button class="cat-tile" type="button" data-cat="${t.id}" aria-pressed="false">
           <span class="cat-tile-thumb ${t.c ? "" : "all"}" aria-hidden="true">${t.c ? `<img src="${img(t.c.items[0].img)}" alt="" class="${t.c.list ? "contain" : ""}" loading="lazy" decoding="async">` : fireIcon}</span>
           <span class="cat-tile-text"><span class="body-5 cat-tile-name">${esc(t.title)}</span><span class="caption-5 cat-tile-n">${plural(t.n)}</span></span>
         </button>`).join("");
+      catGrid.innerHTML = tilesHTML();
+      onLang.push(() => { catGrid.innerHTML = tilesHTML(); });
 
       let closeTimer = 0;
       const isOpen = () => !sheet.hidden && sheet.classList.contains("open");
@@ -450,11 +460,22 @@
 
     apply(false);
     updateBar();
+
+    onLang.push(() => {
+      track.innerHTML = filtersHTML();
+      paintEdges();
+      groups.forEach((g, i) => { g.innerHTML = groupInner(MENU[i]); });
+      apply(false);
+      updateBar();
+    });
   }
 
   /* ---------- Vendredi ---------- */
   const friday = $("#fridayChip span");
-  if (friday && new Date().getDay() === 5) friday.textContent = T("Disponible aujourd'hui");
+  if (friday && new Date().getDay() === 5) {
+    friday.textContent = T("Disponible aujourd'hui");
+    onLang.push(() => { friday.textContent = T("Disponible aujourd'hui"); });
+  }
 
   /* ---------- Navigation ---------- */
   const toggle = $("#navToggle");
@@ -479,6 +500,9 @@
       if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") { setMenu(false); toggle.focus(); }
     });
     window.matchMedia("(min-width: 960px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
+    onLang.push(() => {
+      toggle.setAttribute("aria-label", T(toggle.getAttribute("aria-expanded") === "true" ? "Fermer le menu de navigation" : "Ouvrir le menu de navigation"));
+    });
   }
 
   // Téléphone : la barre se range quand on descend et revient dès qu'on remonte.
@@ -526,6 +550,7 @@
   };
   syncBest();
   phone.addEventListener("change", syncBest);
+  onLang.push(syncBest);
 
   /* ---------- Best sellers : rangée à faire glisser ---------- */
   const bestPrev = $("#bestPrev");
@@ -634,14 +659,23 @@
   /* ---------- Tagline mot à mot ---------- */
   const tagline = $("#tagline");
   if (tagline) {
-    const words = tagline.textContent.trim().split(/\s+/);
-    tagline.setAttribute("aria-label", tagline.textContent.trim());
-    tagline.innerHTML = words.map((w) => `<span class="w" aria-hidden="true">${esc(w)}</span>`).join(" ");
-    const spans = $$(".w", tagline);
-    if (reduced) {
-      spans.forEach((s) => s.classList.add("on"));
-    } else {
-      let lit = 0;
+    // i18n.js garde le français d'origine dans data-fr : la phrase se retraduit à chaque changement de langue.
+    const source = tagline.dataset.fr || tagline.textContent.trim();
+    let spans = [];
+    let lit = reduced ? Infinity : 0;
+    const build = () => {
+      const text = T(source);
+      tagline.setAttribute("aria-label", text);
+      tagline.innerHTML = text.split(/\s+/).map((w) => `<span class="w" aria-hidden="true">${esc(w)}</span>`).join(" ");
+      spans = $$(".w", tagline);
+      // Les mots déjà allumés le restent ; si toute la phrase l'était, la nouvelle l'est aussi.
+      const done = lit >= spans.length;
+      spans.forEach((s, i) => { if (done || i < lit) s.classList.add("on"); });
+      if (done) lit = Infinity;
+    };
+    build();
+    onLang.push(build);
+    if (!reduced) {
       let ticking = false;
       const update = () => {
         ticking = false;
@@ -654,7 +688,7 @@
         if (n > lit) {
           for (let i = lit; i < n; i++) spans[i].classList.add("on");
           lit = n;
-          if (lit === spans.length) window.removeEventListener("scroll", onScroll);
+          if (lit === spans.length) { lit = Infinity; window.removeEventListener("scroll", onScroll); }
         }
       };
       const onScroll = () => {
