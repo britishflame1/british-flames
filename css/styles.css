@@ -1131,3 +1131,6 @@ a, button, summary { touch-action: manipulation; }
 }
 .fire-toggle[aria-pressed="false"] .fire-dot { background: #555; box-shadow: none; }
 @media (hover: none), (pointer: coarse) { .fire-toggle { display: none; } }
+
+/* Numéro de téléphone : sélectionnable d'un coup pour le copier */
+.phone-number { user-select: all; -webkit-user-select: all; font-variant-numeric: tabular-nums; }
