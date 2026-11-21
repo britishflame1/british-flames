@@ -34,10 +34,10 @@ window.BF_MENU = [
   {
     id: "familles", label: "Formules famille", title: "Formules à partager", ratio: "1 / 1",
     items: [
-      { n: "Peri-Peri Duo", img: "famille-peri-duo", p: 79, d: "Pour 2 : 2 × ¼ poulet Peri-Peri, 2 portions de frites, 2 boissons, 2 sauces" },
-      { n: "Family Chicken", img: "famille-chicken", p: 139, d: "Pour 3 à 4 : 1 poulet entier Peri-Peri, grandes frites, salade, 4 boissons, sauces" },
-      { n: "Family Pizza", img: "famille-pizza", p: 179, d: "Pour 3 à 4 : 3 pizzas au choix, grandes frites, 4 boissons" },
-      { n: "Mixed Family Box", img: "famille-mixed-box", p: 199, d: "Pour 4 : 2 cheeseburgers, 2 wraps döner ou poulet, 5 chicken wings, 2 grandes frites, 4 boissons, sauces" }
+      { n: "Peri-Peri Duo", img: "famille-peri-duo", p: 105, d: "Pour 2 : 2 × ½ poulet Peri-Peri, 2 portions de frites, 2 boissons, 2 sauces" },
+      { n: "Family Chicken", img: "famille-chicken", p: 185, d: "Pour 3 à 4 : 1 poulet entier Peri-Peri, grandes frites, salade, 4 boissons, sauces" },
+      { n: "Family Pizza", img: "famille-pizza", p: 239, d: "Pour 3 à 4 : 3 pizzas au choix, grandes frites, 4 boissons" },
+      { n: "Mixed Family Box", img: "famille-mixed-box", p: 265, d: "Pour 4 : 2 cheeseburgers, 2 wraps döner ou poulet, 5 chicken wings, 2 grandes frites, 4 boissons, sauces" }
     ]
   },
   {
@@ -84,7 +84,7 @@ window.BF_MENU = [
   },
   {
     id: "tacos", label: "Tacos", title: "Tacos français", ratio: "2 / 1", wide: true,
-    note: "Menu tacos : frites et boisson pour 15 DH de plus",
+    note: "Menu tacos : frites et boisson pour 15 DH de plus. Suppléments : gratiné 10 DH, extra fromage 3 DH, cordon bleu 10 DH, viande hachée 20 DH, nuggets 5 DH",
     items: [
       { n: "Tacos Poulet", img: "tacos-poulet", p: 35 },
       { n: "Tacos Viande Hachée", img: "tacos-viande-hachee", p: 39 },
@@ -132,9 +132,9 @@ window.BF_MENU = [
   {
     id: "poulet-croustillant", label: "Poulet croustillant", title: "Poulet croustillant & box", ratio: "2 / 1", wide: true,
     items: [
-      { n: "Crispy Chicken Box", img: "crunchy-box", p: 45 },
-      { n: "Double Crispy Chicken Box", img: "box-mixte", p: 65 },
-      { n: "Nuggets Box", img: "nuggets-6", p: 35 },
+      { n: "Crispy Chicken Box", img: "crunchy-box", p: 45, d: "2 pièces, frites et boisson" },
+      { n: "Double Crispy Chicken Box", img: "box-mixte", p: 55, d: "4 pièces, frites et boisson" },
+      { n: "Nuggets Box", img: "nuggets-6", p: [["6 pièces", 35], ["12 pièces", 55]] },
       { n: "Cordon Bleu Box", img: "crunchy-box", p: 39 },
       { n: "Tenders de poulet", img: "tenders", p: [["3 pièces", 39], ["5 pièces", 55]] },
       { n: "Ailes de poulet", img: "ailes", p: [["6 pièces", 39]] },
@@ -176,14 +176,14 @@ window.BF_MENU = [
   },
   {
     id: "paninis", label: "Paninis", title: "Paninis grillés", ratio: "3 / 2",
-    note: "Menu : frites et boisson pour 15 DH de plus",
+    note: "Menu : frites et boisson pour 20 DH de plus",
     items: [
-      { n: "Panini Poulet", img: "panini", p: 25 },
-      { n: "Panini Viande Hachée", img: "panini", p: 30 },
-      { n: "Panini Thon", img: "panini", p: 25 },
-      { n: "Panini Dinde Fumée", img: "panini", p: 25 },
-      { n: "Panini Mixte", img: "panini", p: 35 },
-      { n: "Panini Döner", img: "panini", p: 35 }
+      { n: "Panini Poulet", img: "panini", p: 34 },
+      { n: "Panini Viande Hachée", img: "panini", p: 40 },
+      { n: "Panini Thon", img: "panini", p: 34 },
+      { n: "Panini Dinde Fumée", img: "panini", p: 34 },
+      { n: "Panini Mixte", img: "panini", p: 47 },
+      { n: "Panini Döner", img: "panini", p: 47 }
     ]
   },
   {
@@ -270,7 +270,7 @@ window.BF_MENU = [
       { n: "Tajine Viande", img: "tajine", p: 49, d: "Le lundi" },
       { n: "Tajine Poulet", img: "tajine", p: 35, d: "Le mardi" },
       { n: "Tajine Kefta & œufs", img: "tajine", p: 39, d: "Le mercredi" },
-      { n: "Tajine Kebda", img: "tajine", d: "Le jeudi" },
+      { n: "Tajine Kebda", img: "tajine", p: 55, d: "Le jeudi" },
       { n: "Couscous aux Légumes", img: "couscous-legumes", p: 29, d: "Le vendredi" },
       { n: "Couscous au Poulet", img: "couscous-poulet", p: 39, d: "Le vendredi" },
       { n: "Couscous au Bœuf", img: "couscous-boeuf", p: 49, d: "Le vendredi" }

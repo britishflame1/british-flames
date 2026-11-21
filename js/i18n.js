@@ -85,6 +85,10 @@
     "3 pièces": "3 pieces",
     "5 pièces": "5 pieces",
     "6 pièces": "6 pieces",
+    "12 pièces": "12 pieces",
+    "2 pièces, frites et boisson": "2 pieces, fries and a drink",
+    "4 pièces, frites et boisson": "4 pieces, fries and a drink",
+    "Menu : frites et boisson pour 20 DH de plus": "Meal: fries and a drink for 20 DH more",
 
     /* ----- Couscous ----- */
     "Chaque vendredi": "Every Friday",
@@ -162,7 +166,7 @@
     "Boissons": "Drinks",
 
     /* ----- Notes des familles ----- */
-    "Menu tacos : frites et boisson pour 15 DH de plus": "Tacos meal: fries and a drink for 15 DH more",
+    "Menu tacos : frites et boisson pour 15 DH de plus. Suppléments : gratiné 10 DH, extra fromage 3 DH, cordon bleu 10 DH, viande hachée 20 DH, nuggets 5 DH": "Tacos meal: fries and a drink for 15 DH more. Extras: au gratin 10 DH, extra cheese 3 DH, cordon bleu 10 DH, minced meat 20 DH, nuggets 5 DH",
     "Menu sandwich : frites et boisson pour 15 DH de plus": "Sandwich meal: fries and a drink for 15 DH more",
     "Menus servis avec frites, salade et sauce au choix": "Meals served with fries, salad and a sauce of your choice",
     "Supplément fromage : 5 DH": "Extra cheese: 5 DH",
@@ -259,7 +263,7 @@
     "Frites et sauce incluses, soda pour 8 DH de plus. Offre limitée.": "Fries and sauce included, soda for 8 DH more. Limited-time offer.",
     "Formules famille": "Family deals",
     "Formules à partager": "Deals to share",
-    "Pour 2 : 2 × ¼ poulet Peri-Peri, 2 portions de frites, 2 boissons, 2 sauces": "For 2: 2 × ¼ Peri-Peri chicken, 2 portions of fries, 2 drinks, 2 sauces",
+    "Pour 2 : 2 × ½ poulet Peri-Peri, 2 portions de frites, 2 boissons, 2 sauces": "For 2: 2 × ½ Peri-Peri chicken, 2 portions of fries, 2 drinks, 2 sauces",
     "Pour 3 à 4 : 1 poulet entier Peri-Peri, grandes frites, salade, 4 boissons, sauces": "For 3 to 4: 1 whole Peri-Peri chicken, large fries, salad, 4 drinks, sauces",
     "Pour 3 à 4 : 3 pizzas au choix, grandes frites, 4 boissons": "For 3 to 4: 3 pizzas of your choice, large fries, 4 drinks",
     "Pour 4 : 2 cheeseburgers, 2 wraps döner ou poulet, 5 chicken wings, 2 grandes frites, 4 boissons, sauces": "For 4: 2 cheeseburgers, 2 döner or chicken wraps, 5 chicken wings, 2 large fries, 4 drinks, sauces",
@@ -375,8 +379,8 @@
     "Rubicon": "Rubicon",
 
     /* ----- Page : textes mis à jour avec la nouvelle carte ----- */
-    "Des frites et une boisson pour 15 DH de plus. La formule existe pour les burgers, les tacos, les sandwichs, les paninis et le döner.":
-      "Fries and a drink for 15 DH more. The deal is available for burgers, tacos, sandwiches, paninis and döner.",
+    "Des frites et une boisson pour 15 DH de plus, ou 20 DH avec un panini. La formule existe pour les burgers, les tacos, les sandwichs, les paninis et le döner.":
+      "Fries and a drink for 15 DH more, or 20 DH with a panini. The deal is available for burgers, tacos, sandwiches, paninis and döner.",
     "Le vendredi uniquement. Légumes à 29 DH, poulet à 39 DH, bœuf à 49 DH. Les tajines changent chaque jour : viande le lundi, poulet le mardi, kefta et œufs le mercredi, kebda le jeudi.":
       "Fridays only. Vegetable 29 DH, chicken 39 DH, beef 49 DH. The tagine changes every day: meat on Monday, chicken on Tuesday, kofta and egg on Wednesday, liver on Thursday.",
     "Frites et boisson incluses, avec au choix des nuggets, une mini pizza, un cheeseburger ou du poulet croustillant. De 35 à 39 DH.":
@@ -461,6 +465,10 @@
     "3 pièces": "3 piezas",
     "5 pièces": "5 piezas",
     "6 pièces": "6 piezas",
+    "12 pièces": "12 piezas",
+    "2 pièces, frites et boisson": "2 piezas, patatas y bebida",
+    "4 pièces, frites et boisson": "4 piezas, patatas y bebida",
+    "Menu : frites et boisson pour 20 DH de plus": "Menú: patatas y bebida por 20 DH más",
 
     /* ----- Couscous ----- */
     "Chaque vendredi": "Cada viernes",
@@ -538,7 +546,7 @@
     "Boissons": "Bebidas",
 
     /* ----- Notes des familles ----- */
-    "Menu tacos : frites et boisson pour 15 DH de plus": "Menú tacos: patatas y bebida por 15 DH más",
+    "Menu tacos : frites et boisson pour 15 DH de plus. Suppléments : gratiné 10 DH, extra fromage 3 DH, cordon bleu 10 DH, viande hachée 20 DH, nuggets 5 DH": "Menú tacos: patatas y bebida por 15 DH más. Extras: gratinado 10 DH, queso extra 3 DH, cordon bleu 10 DH, carne picada 20 DH, nuggets 5 DH",
     "Menu sandwich : frites et boisson pour 15 DH de plus": "Menú bocadillo: patatas y bebida por 15 DH más",
     "Menus servis avec frites, salade et sauce au choix": "Menús servidos con patatas, ensalada y salsa a elegir",
     "Supplément fromage : 5 DH": "Extra de queso: 5 DH",
@@ -635,7 +643,7 @@
     "Frites et sauce incluses, soda pour 8 DH de plus. Offre limitée.": "Patatas y salsa incluidas, refresco por 8 DH más. Oferta limitada.",
     "Formules famille": "Menús familiares",
     "Formules à partager": "Para compartir",
-    "Pour 2 : 2 × ¼ poulet Peri-Peri, 2 portions de frites, 2 boissons, 2 sauces": "Para 2: 2 × ¼ de pollo Peri-Peri, 2 raciones de patatas, 2 bebidas, 2 salsas",
+    "Pour 2 : 2 × ½ poulet Peri-Peri, 2 portions de frites, 2 boissons, 2 sauces": "Para 2: 2 × ½ pollo Peri-Peri, 2 raciones de patatas, 2 bebidas, 2 salsas",
     "Pour 3 à 4 : 1 poulet entier Peri-Peri, grandes frites, salade, 4 boissons, sauces": "Para 3 o 4: 1 pollo entero Peri-Peri, patatas grandes, ensalada, 4 bebidas, salsas",
     "Pour 3 à 4 : 3 pizzas au choix, grandes frites, 4 boissons": "Para 3 o 4: 3 pizzas a elegir, patatas grandes, 4 bebidas",
     "Pour 4 : 2 cheeseburgers, 2 wraps döner ou poulet, 5 chicken wings, 2 grandes frites, 4 boissons, sauces": "Para 4: 2 hamburguesas con queso, 2 wraps de döner o pollo, 5 alitas, 2 patatas grandes, 4 bebidas, salsas",
@@ -751,8 +759,8 @@
     "Rubicon": "Rubicon",
 
     /* ----- Page : textes mis à jour avec la nouvelle carte ----- */
-    "Des frites et une boisson pour 15 DH de plus. La formule existe pour les burgers, les tacos, les sandwichs, les paninis et le döner.":
-      "Patatas y bebida por 15 DH más. El menú está disponible para hamburguesas, tacos, bocadillos, paninis y döner.",
+    "Des frites et une boisson pour 15 DH de plus, ou 20 DH avec un panini. La formule existe pour les burgers, les tacos, les sandwichs, les paninis et le döner.":
+      "Patatas y bebida por 15 DH más, o 20 DH con un panini. El menú está disponible para hamburguesas, tacos, bocadillos, paninis y döner.",
     "Le vendredi uniquement. Légumes à 29 DH, poulet à 39 DH, bœuf à 49 DH. Les tajines changent chaque jour : viande le lundi, poulet le mardi, kefta et œufs le mercredi, kebda le jeudi.":
       "Solo los viernes. Verduras 29 DH, pollo 39 DH, ternera 49 DH. El tajín cambia cada día: carne el lunes, pollo el martes, kefta y huevos el miércoles, hígado el jueves.",
     "Frites et boisson incluses, avec au choix des nuggets, une mini pizza, un cheeseburger ou du poulet croustillant. De 35 à 39 DH.":
