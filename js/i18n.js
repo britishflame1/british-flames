@@ -124,7 +124,8 @@
     "Téléphone et WhatsApp": "Phone and WhatsApp",
     "À compléter : numéro pour commander": "To be added: number for orders",
     "Horaires": "Opening hours",
-    "À compléter : jours et heures d'ouverture": "To be added: opening days and hours",
+    "10h – minuit": "10 am – midnight",
+    "Tous les jours, 7 jours sur 7": "Every day, 7 days a week",
     "Plan du quartier autour de British Flames, Tanger": "Map of the area around British Flames, Tangier",
     "British Flames se trouve sur la Desserte Qur Golf, entre la Pharmacie Al Madina et le rond-point El Moujahidine, au sud du Royal Golf de Tanger.":
       "British Flames is on Desserte Qur Golf, between Pharmacie Al Madina and the El Moujahidine roundabout, south of the Royal Golf de Tanger.",
@@ -504,7 +505,8 @@
     "Téléphone et WhatsApp": "Teléfono y WhatsApp",
     "À compléter : numéro pour commander": "Por completar: número para pedidos",
     "Horaires": "Horario",
-    "À compléter : jours et heures d'ouverture": "Por completar: días y horas de apertura",
+    "10h – minuit": "10:00 – medianoche",
+    "Tous les jours, 7 jours sur 7": "Todos los días, de lunes a domingo",
     "Plan du quartier autour de British Flames, Tanger": "Plano del barrio alrededor de British Flames, Tánger",
     "British Flames se trouve sur la Desserte Qur Golf, entre la Pharmacie Al Madina et le rond-point El Moujahidine, au sud du Royal Golf de Tanger.":
       "British Flames está en la Desserte Qur Golf, entre la Pharmacie Al Madina y la rotonda El Moujahidine, al sur del Royal Golf de Tánger.",
