@@ -387,8 +387,8 @@
     "Frites et boisson incluses, avec au choix des nuggets, une mini pizza, un cheeseburger ou du poulet croustillant. De 35 à 39 DH.":
       "Fries and a drink included, with a choice of nuggets, a mini pizza, a cheeseburger or crispy chicken. From 35 to 39 DH.",
     "Livrez-vous à domicile ?": "Do you deliver?",
-    "Oui. Commandez directement par téléphone ou WhatsApp au +212 663 630 768. La zone et les frais de livraison sont confirmés lors de la commande.":
-      "Yes. Order directly by phone or WhatsApp on +212 663 630 768. The delivery area and fee are confirmed when you order.",
+    "Oui. Commandez directement par téléphone ou WhatsApp au +212 637 648 471. La zone et les frais de livraison sont confirmés lors de la commande.":
+      "Yes. Order directly by phone or WhatsApp on +212 637 648 471. The delivery area and fee are confirmed when you order.",
     "Complexe Kawasim, Tanger": "Complexe Kawasim, Tangier",
     "Desserte Qur Golf": "Desserte Qur Golf",
     "Commandes et livraison à domicile": "Orders and home delivery",
@@ -768,8 +768,8 @@
     "Frites et boisson incluses, avec au choix des nuggets, une mini pizza, un cheeseburger ou du poulet croustillant. De 35 à 39 DH.":
       "Patatas y bebida incluidas, a elegir entre nuggets, mini pizza, hamburguesa con queso o pollo crujiente. De 35 a 39 DH.",
     "Livrez-vous à domicile ?": "¿Hacéis entregas a domicilio?",
-    "Oui. Commandez directement par téléphone ou WhatsApp au +212 663 630 768. La zone et les frais de livraison sont confirmés lors de la commande.":
-      "Sí. Pide directamente por teléfono o WhatsApp al +212 663 630 768. La zona y el coste de entrega se confirman al hacer el pedido.",
+    "Oui. Commandez directement par téléphone ou WhatsApp au +212 637 648 471. La zone et les frais de livraison sont confirmés lors de la commande.":
+      "Sí. Pide directamente por teléfono o WhatsApp al +212 637 648 471. La zona y el coste de entrega se confirman al hacer el pedido.",
     "Complexe Kawasim, Tanger": "Complexe Kawasim, Tánger",
     "Desserte Qur Golf": "Desserte Qur Golf",
     "Commandes et livraison à domicile": "Pedidos y entrega a domicilio",
